@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Platform
+  - Dynamic
+  - Damage
+  - Health
+  - Training
+  - FireBall
+  - Gift
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Sun
+  - Night
+  - PostProccesing
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Earth
+    uniqueID: 1026113615
+    locked: 0
+  - name: Obstacle
+    uniqueID: 2577421043
+    locked: 0
+  - name: Hero
+    uniqueID: 3462926733
+    locked: 0
+  - name: Tree
+    uniqueID: 1011912507
+    locked: 0
