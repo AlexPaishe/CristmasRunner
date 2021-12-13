@@ -8,7 +8,7 @@ public class Health : MonoBehaviour
     private int _health = 0;
     private bool _go = false;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if(collision.CompareTag("Health"))
         {
@@ -41,11 +41,18 @@ public class Health : MonoBehaviour
     /// </summary>
     public void Begin()
     {
-        switch(Base.CurrentHealth)
+        if (Base.Hard == false)
         {
-            case 0: _anima[Base.CurrentHealth].SetTrigger("Begin"); break;
-            case 1: _anima[Base.CurrentHealth].SetTrigger("Begin"); break;
-            case 2: _anima[Base.CurrentHealth].SetTrigger("Begin"); break;
+            switch (Base.CurrentHealth)
+            {
+                case 0: _anima[Base.CurrentHealth].SetTrigger("Begin"); break;
+                case 1: _anima[Base.CurrentHealth].SetTrigger("Begin"); break;
+                case 2: _anima[Base.CurrentHealth].SetTrigger("Begin"); break;
+            }
+        }
+        else
+        {
+            _anima[0].SetTrigger("Begin");
         }
     }
 
@@ -56,11 +63,20 @@ public class Health : MonoBehaviour
     {
         if (_go == false)
         {
-            switch (Base.CurrentHealth)
+            if (Base.Hard == false)
             {
-                case 0:  Base.CurrentHealth++; _health++; break;
-                case 1:  Base.CurrentHealth++; _health++; break;
-                case 2:  Base.CurrentHealth++; _health++; _go = true; break;
+                switch (Base.CurrentHealth)
+                {
+                    case 0: Base.CurrentHealth++; _health++; break;
+                    case 1: Base.CurrentHealth++; _health++; break;
+                    case 2: Base.CurrentHealth++; _health++; _go = true; break;
+                }
+            }
+            else
+            {
+                Base.CurrentHealth ++;
+                _health++;
+                _go = true;
             }
         }
     }

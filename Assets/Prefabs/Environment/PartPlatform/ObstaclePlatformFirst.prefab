@@ -108,11 +108,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 355411437480113422}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0041, y: 0.0159, z: -0.0010555983}
-  m_LocalScale: {x: 0.041337043, y: 0.041274644, z: 1}
+  m_LocalPosition: {x: 0.019, y: 0.09, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1.000068}
   m_Children: []
-  m_Father: {fileID: 986340304882019363}
-  m_RootOrder: 16
+  m_Father: {fileID: 9006739993448668233}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2566159083011826159
 SpriteRenderer:
@@ -155,7 +155,7 @@ SpriteRenderer:
   m_SortingLayerID: 1026113615
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 510417734098634814, guid: caa9ce56276036244af825f0705b429b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bdbb6d6bbfe87d34bb68660116902983, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2071,6 +2071,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &6339791461707807100
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9006739993448668233}
+  m_Layer: 0
+  m_Name: Night
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9006739993448668233
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6339791461707807100}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.00060313, z: 0}
+  m_LocalScale: {x: 0.20453125, y: 0.183, z: 1}
+  m_Children:
+  - {fileID: 6821216816223052478}
+  m_Father: {fileID: 986340304882019363}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6655384843045133575
 GameObject:
   m_ObjectHideFlags: 0
@@ -2665,7 +2696,7 @@ Transform:
   - {fileID: 497731030199245504}
   - {fileID: 5976459003927085912}
   - {fileID: 4822032799938203780}
-  - {fileID: 6821216816223052478}
+  - {fileID: 9006739993448668233}
   m_Father: {fileID: 8107850761107097546}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

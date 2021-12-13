@@ -7,18 +7,25 @@ public class GiftDrop : MonoBehaviour
     [SerializeField] private GameObject[] _present;
     [SerializeField] private Transform _point;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if(collision.CompareTag("FireBall"))
         {
             int rand = Random.Range(0, 101);
-            if(rand > 10)
+            if (Base.Hard == false)
             {
-                rand = 0;
+                if (rand > 10)
+                {
+                    rand = 0;
+                }
+                else
+                {
+                    rand = 1;
+                }
             }
             else
             {
-                rand = 1;
+                rand = 0;
             }
             Instantiate(_present[rand], _point.position, Quaternion.identity);
             Destroy(collision.gameObject);

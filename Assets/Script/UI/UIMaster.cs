@@ -7,22 +7,21 @@ using UnityEngine.UI;
 public class UIMaster : MonoBehaviour
 {
     [SerializeField] private Text _startText;
-    [SerializeField] private Image _buttonImage;
     [SerializeField] private string[] _pauseAndStart;
-    [SerializeField] private Animator[] _anima;
-    [SerializeField] private GameObject _setting;
+    [SerializeField] private Animator _anima;
     private bool _go = true;
     private Score _score;
+    private AfterPause _after;
 
     private void Awake()
     {
         _score = FindObjectOfType<Score>();
+        _after = FindObjectOfType<AfterPause>();
         Base.PlayerSpeed = PlayerPrefs.GetFloat("HardLevel");
         Base.Speed = PlayerPrefs.GetFloat("HardLevel");
         Base.Mobile = PlayerPrefs.GetInt("VariationInput");
         Base.Death = false;
         Base.Go = false;
-        Base.Training = false;
         Base.CurrentHealth = 0;
         Base.CurrentFree = 1;
         Base.FireBall = false;
@@ -35,22 +34,20 @@ public class UIMaster : MonoBehaviour
     /// </summary>
     public void StartAndPause()
     {
-        if (Base.Death == false)
+        if (Base.Death == false && _after._pause == false)
         {
             if (_go == true)
             {
                 _startText.text = _pauseAndStart[0];
                 _go = false;
-                _buttonImage.color = Color.green;
                 Base.Pause = true;
-                _anima[0].SetBool("Pause", true);
+                _anima.SetBool("Pause", true);
             }
             else
             {
                 _startText.text = _pauseAndStart[1];
-                _buttonImage.color = Color.cyan;
                 _go = true;
-                _anima[0].SetBool("Pause", false);
+                _anima.SetBool("Pause", false);
             }
         }
     }
@@ -59,8 +56,10 @@ public class UIMaster : MonoBehaviour
     {
         if(_score.death == true)
         {
-            _anima[1].SetTrigger("Death");
+            _anima.SetBool("Pause", true);
         }
+
+        Debug.Log(Base.Training);
     }
 
     /// <summary>
@@ -77,20 +76,5 @@ public class UIMaster : MonoBehaviour
     public void Menu()
     {
         SceneManager.LoadScene(0);
-    }
-
-    /// <summary>
-    /// ¬ключение и выключение меню настроек
-    /// </summary>
-    public void Setting()
-    {
-        if(_setting.activeSelf)
-        {
-            _setting.SetActive(false);
-        }
-        else
-        {
-            _setting.SetActive(true);
-        }
     }
 }

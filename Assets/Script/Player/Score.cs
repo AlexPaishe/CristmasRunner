@@ -7,9 +7,6 @@ public class Score : MonoBehaviour
 {
     [SerializeField] private Text _scoreText;
     [SerializeField] private Text _scoreDeath;
-    [SerializeField] private Text _scoreRecord;
-    [SerializeField] private InputField _recordman;
-    [SerializeField] private GameObject _nameRecord;
 
     private float _giftCount = 0;
     private float _record = 0;
@@ -19,27 +16,26 @@ public class Score : MonoBehaviour
     private void Awake()
     {
         _record = PlayerPrefs.GetFloat("Record");
-        _nameRecord.SetActive(false);
 
         if (_record / 1000 >= 1)
         {
-            _scoreRecord.text = $"You Record X {_record}";
+            _scoreDeath.text = $"You Record X {_record}";
         }
         else if (_record / 100 >= 1)
         {
-            _scoreRecord.text = $"You Record X 0{_record}";
+            _scoreDeath.text = $"You Record X 0{_record}";
         }
         else if (_record / 10 >= 1)
         {
-            _scoreRecord.text = $"You Record X 00{_record}";
+            _scoreDeath.text = $"You Record X 00{_record}";
         }
         else if (_record / 10 >= 0)
         {
-            _scoreRecord.text = $"You Record X 000{_record}";
+            _scoreDeath.text = $"You Record X 000{_record}";
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if(collision.CompareTag("Gift"))
         {
@@ -91,7 +87,6 @@ public class Score : MonoBehaviour
                 {
                     _scoreDeath.text = $"New Record X 000{_giftCount}";
                 }
-                _nameRecord.SetActive(true);
             }
             else if (_giftCount == _record || _giftCount < _record)
             {
@@ -112,17 +107,6 @@ public class Score : MonoBehaviour
                     _scoreDeath.text = $"You Score X 000{_giftCount}";
                 }
             }
-        }
-    }
-
-    /// <summary>
-    /// «апись им€ пользовател€, который побил новый рекорд
-    /// </summary>
-    public void NewRecord()
-    {
-        if (_recordman.isActiveAndEnabled)
-        {
-            PlayerPrefs.SetString("NameRecord", _recordman.text);
         }
     }
 

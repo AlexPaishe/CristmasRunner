@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class WorldBuilder : MonoBehaviour
 {
-    [SerializeField] private GameObject[] _platforms;
+    [SerializeField] private GameObject _platforms;
     [SerializeField] private GameObject[] _training;
+    [SerializeField] private GameObject _freePlatform;
     public Transform PlatformContainer;
 
     private Transform _lastPhone = null;
@@ -24,8 +25,7 @@ public class WorldBuilder : MonoBehaviour
         Vector3 pos = (_lastPhone == null) ?
             PlatformContainer.position :
             _lastPhone.GetComponent<PlatformBuilder>().EndPoint.position;
-        int index = Random.Range(0, _platforms.Length);
-        GameObject res = Instantiate(_platforms[index], pos, Quaternion.identity, PlatformContainer);
+        GameObject res = Instantiate(_platforms, pos, Quaternion.identity, PlatformContainer);
         _lastPhone = res.transform;
     }
 
@@ -43,18 +43,34 @@ public class WorldBuilder : MonoBehaviour
     }
 
     /// <summary>
+    /// Создание пустой платформы
+    /// </summary>
+    public void CreatFree()
+    {
+        Vector3 pos = (_lastPhone == null) ?
+            PlatformContainer.position :
+            _lastPhone.GetComponent<PlatformBuilder>().EndPoint.position;
+        GameObject res = Instantiate(_freePlatform, pos, Quaternion.identity, PlatformContainer);
+        _lastPhone = res.transform;
+    }
+
+    /// <summary>
     /// Создание начальных платформ
     /// </summary>
     private void Init()
     {
-        if(Base.Training == true)
+        for(int i = 0; i < 4; i++)
+        {
+            CreatFree();
+        }
+        if (Base.Training == true)
         {
             for(int i = 0; i < _training.Length; i++)
             {
                 CreatTraining();
             }
         }
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < 9; i++)
         {
             CreatPhone();
         }

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class AfterPause : MonoBehaviour
 {
     [SerializeField] private Text _TimerText;
-    private bool _pause = false;
+    public bool _pause = false;
     private float _timer = 4;
     private float _step;
 

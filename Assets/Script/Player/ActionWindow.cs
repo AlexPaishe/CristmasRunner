@@ -13,7 +13,7 @@ public class ActionWindow : MonoBehaviour
     [SerializeField] private bool _static;
     [SerializeField] private bool _frameFill;
     [SerializeField] private Image _frame;
-    [SerializeField] private Animator _anima;
+    [SerializeField] private Animator[] _anima;
 
     private bool _go = false;
     private int _currentLevel = 0;
@@ -31,7 +31,7 @@ public class ActionWindow : MonoBehaviour
         _audio = GetComponent<AudioSource>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.CompareTag("Platform") && _static == true || collision.CompareTag("Training") && _static == true)
         {
@@ -42,22 +42,22 @@ public class ActionWindow : MonoBehaviour
             Base.Go = true;
             _currentTimer = _timer;
             _currentTimer /= _multiply;
-            _stepFrame = (1/_currentTimer);
+            _stepFrame = (1 / _currentTimer);
             _frame.fillAmount = 1;
         }
 
-        if(collision.CompareTag("Dynamic") && _static == false)
+        if (collision.CompareTag("Dynamic") && _static == false)
         {
             _cam.cullingMask = _layers[0];
             Base.Speed = _multiply;
             Base.PlayerSpeed = Base.Speed;
             Base.Go = true;
-        }        
+        }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerExit(Collider collision)
     {
-        if(collision.CompareTag("Dynamic") && _static == false)
+        if (collision.CompareTag("Dynamic") && _static == false)
         {
             _cam.cullingMask = _layers[1];
             Base.Go = false;
@@ -120,7 +120,8 @@ public class ActionWindow : MonoBehaviour
             Base.Speed = _multiply;
             _cam.cullingMask = _layers[1];
             Base.Go = false;
-            _anima.speed = 1 * Base.PlayerSpeed;
+            _anima[0].speed = 1 * Base.PlayerSpeed;
+            _anima[1].speed = 1 * Base.PlayerSpeed;
             Base.Crouch = false;
         }
     }
@@ -132,13 +133,14 @@ public class ActionWindow : MonoBehaviour
     {
         _go = false;
         Base.Speed = _multiply;
+        Base.PlayerSpeed = _multiply;
         _cam.cullingMask = _layers[1];
         _currentTimer = _timer;
         _currentTimer /= _multiply;
         _frame.fillAmount = 0;
-        _anima.speed = Base.PlayerSpeed;
-        _audio.pitch = Base.PlayerSpeed;
-        _audio.volume = Base.PlayerSpeed;
-        _audio.Play();
+        //_anima.speed = Base.PlayerSpeed;
+        //_audio.pitch = Base.PlayerSpeed;
+        //_audio.volume = Base.PlayerSpeed;
+        //_audio.Play();
     }
 }

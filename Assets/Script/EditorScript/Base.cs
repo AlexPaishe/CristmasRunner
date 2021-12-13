@@ -15,4 +15,6 @@ public static class Base
     public static bool Death = false;
     public static bool Pause = false;
     public static int Mobile = 0;
+    public static bool PC = true;
+    public static bool Hard = false;
 }

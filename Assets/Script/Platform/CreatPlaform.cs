@@ -10,9 +10,14 @@ public class CreatPlaform : MonoBehaviour
 
     public int CurrentPlatformFree = 0;
 
-    void Start()
+    void Awake()
     {
-        CreatPlatform();
+        NextFree();
+    }
+
+    private void Start()
+    {
+        NextObstacle();
     }
 
     /// <summary>
@@ -21,11 +26,12 @@ public class CreatPlaform : MonoBehaviour
     private void NextFree()
     {
         int rand = Random.Range(0, 101); 
-        if(Base.CurrentFree == 0 || Base.CurrentFree == 2)
+        if(Base.CurrentFree == 0)
         {
             if(rand < 31)
             {
-                CurrentPlatformFree = Base.CurrentFree;
+                CurrentPlatformFree = 0;
+                Base.CurrentFree = 0;
                 Instantiate(_freePlatform, _points[CurrentPlatformFree].position, Quaternion.identity, this.gameObject.transform);
             }
             else if(rand > 31)
@@ -56,6 +62,21 @@ public class CreatPlaform : MonoBehaviour
                 Instantiate(_freePlatform, _points[CurrentPlatformFree].position, Quaternion.identity, this.gameObject.transform);
             }
         }
+        else if(Base.CurrentFree == 2)
+        {
+            if (rand < 31)
+            {
+                CurrentPlatformFree = 2;
+                Base.CurrentFree = 2;
+                Instantiate(_freePlatform, _points[CurrentPlatformFree].position, Quaternion.identity, this.gameObject.transform);
+            }
+            else if (rand > 31)
+            {
+                CurrentPlatformFree = 1;
+                Base.CurrentFree = 1;
+                Instantiate(_freePlatform, _points[CurrentPlatformFree].position, Quaternion.identity, this.gameObject.transform);
+            }
+        }
     }
 
     /// <summary>
@@ -65,20 +86,11 @@ public class CreatPlaform : MonoBehaviour
     {
         for(int i = 0; i < _points.Length; i++)
         {
-            if(i != Base.CurrentFree)
+            if(i !=CurrentPlatformFree)
             {
                 int rand = Random.Range(0, _obstaclePlatform.Length);
                 Instantiate(_obstaclePlatform[rand], _points[i].position, Quaternion.identity, this.gameObject.transform);
             }
         }
-    }
-
-    /// <summary>
-    /// Создание платформы
-    /// </summary>
-    private void CreatPlatform()
-    {
-        NextFree();
-        NextObstacle();
     }
 }

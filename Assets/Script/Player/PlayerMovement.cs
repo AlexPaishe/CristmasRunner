@@ -6,16 +6,12 @@ using ScreenMobile = UnityEngine.Device.Screen;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private Vector3[] _point;
-    [SerializeField] private Vector3[] _size;
     [SerializeField] private float _speed;
-    [SerializeField] private float _stepSize;
-    [SerializeField] private bool _mobile;
+    [SerializeField] private Animator[] _anima;
 
     public int currentPosition = 1;
     private float _currentSpeed;
-    private float _currentSize;
-    private Animator _anima;
-    private BoxCollider2D _box;
+    private BoxCollider _box;
     private bool _death = false;
     private bool _pause = false;
 
@@ -25,8 +21,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        _anima = GetComponent<Animator>();
-        _box = GetComponent<BoxCollider2D>();
+        _box = GetComponent<BoxCollider>();
     }
 
     private void Update()
@@ -37,12 +32,14 @@ public class PlayerMovement : MonoBehaviour
             {
                 if(_pause == true)
                 {
-                    _anima.speed = Base.PlayerSpeed;
+                    _anima[0].speed = Base.PlayerSpeed;
+                    _anima[1].speed = Base.PlayerSpeed;
                     _pause = false;
                 }
                 if (Base.Go == true)
                 {
-                    _anima.speed = Base.Speed;
+                    _anima[0].speed = Base.Speed;
+                    _anima[1].speed = Base.Speed;
                     Move();
                 }
 
@@ -50,16 +47,16 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                if(_anima.speed !=0)
+                if(_anima[0].speed !=0)
                 {
-                    _anima.speed = 0;
+                    _anima[0].speed = 0;
                     _pause = true;
                 }
             }
         }
         else if(Base.Death == true && _death == false)
         {
-            _anima.SetTrigger("Death");
+            _anima[0].SetTrigger("Death");
             _death = true;
         }
     }
@@ -69,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     private void Move()
     {
-        if(_mobile == false)
+        if(Base.PC == true)
         {
             PCMove();
         }
@@ -103,11 +100,6 @@ public class PlayerMovement : MonoBehaviour
                 Base.Crouch = true;
             }
         }
-
-        if (transform.localScale != _size[currentPosition])
-        {
-            transform.localScale = Vector3.MoveTowards(transform.localScale, _size[currentPosition], _currentSize);
-        }
     }
 
     /// <summary>
@@ -115,9 +107,9 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     public void BeginCrouch()
     {
-        _anima.SetBool("Crouch", true);
-        _box.size = new Vector2(0.14f, 0.08f);
-        _box.offset = new Vector2(0, 0.04f);
+        _anima[0].SetBool("Crouch", true);
+        _box.size = new Vector3(1, 5, 3);
+        _box.center = new Vector3(0, 2, 2);
     }
 
     /// <summary>
@@ -125,9 +117,9 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     public void EndCrouch()
     {
-        _box.size = new Vector2(0.14f, 0.25f);
-        _box.offset = new Vector2(0, 0.13f);
-        _anima.SetBool("Crouch", false);
+        _box.size = new Vector3(1, 5, 3);
+        _box.center = new Vector3(0, 2, 2);
+        _anima[0].SetBool("Crouch", false);
     }
 
     /// <summary>
@@ -138,7 +130,6 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W))
         {
             _currentSpeed = _speed * Base.PlayerSpeed;
-            _currentSize = _stepSize * Base.PlayerSpeed;
             currentPosition++;
             if (currentPosition > 2)
             {
@@ -146,11 +137,12 @@ public class PlayerMovement : MonoBehaviour
             }
             Base.Go = false;
             Base.Crouch = false;
+            _anima[0].speed = Base.PlayerSpeed;
+            _anima[1].speed = Base.PlayerSpeed;
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
             _currentSpeed = _speed * Base.PlayerSpeed;
-            _currentSize = _stepSize * Base.PlayerSpeed;
             currentPosition--;
             if (currentPosition < 0)
             {
@@ -158,12 +150,16 @@ public class PlayerMovement : MonoBehaviour
             }
             Base.Go = false;
             Base.Crouch = false;
+            _anima[0].speed = Base.PlayerSpeed;
+            _anima[1].speed = Base.PlayerSpeed;
         }
         else if (Input.GetKeyDown(KeyCode.A))
         {
             BeginCrouch();
             Base.Go = false;
             Base.Crouch = true;
+            _anima[0].speed = Base.PlayerSpeed;
+            _anima[1].speed = Base.PlayerSpeed;
         }
     }
 
@@ -178,7 +174,6 @@ public class PlayerMovement : MonoBehaviour
             if(touch.position.y < _currentHeight/3 && touch.phase == TouchPhase.Began)
             {
                 _currentSpeed = _speed * Base.PlayerSpeed;
-                _currentSize = _stepSize * Base.PlayerSpeed;
                 currentPosition--;
                 if (currentPosition < 0)
                 {
@@ -186,6 +181,8 @@ public class PlayerMovement : MonoBehaviour
                 }
                 Base.Go = false;
                 Base.Crouch = false;
+                _anima[0].speed = Base.PlayerSpeed;
+                _anima[1].speed = Base.PlayerSpeed;
             }
             else if(touch.position.y > _currentHeight/3 && touch.position.y < (_currentHeight/3)*2 
                 && touch.phase == TouchPhase.Began)
@@ -193,11 +190,12 @@ public class PlayerMovement : MonoBehaviour
                 BeginCrouch();
                 Base.Go = false;
                 Base.Crouch = true;
+                _anima[0].speed = Base.PlayerSpeed;
+                _anima[1].speed = Base.PlayerSpeed;
             }
             else if(touch.position.y > (_currentHeight / 3) * 2 && touch.phase == TouchPhase.Began)
             {
                 _currentSpeed = _speed * Base.PlayerSpeed;
-                _currentSize = _stepSize * Base.PlayerSpeed;
                 currentPosition++;
                 if (currentPosition > 2)
                 {
@@ -205,6 +203,8 @@ public class PlayerMovement : MonoBehaviour
                 }
                 Base.Go = false;
                 Base.Crouch = false;
+                _anima[0].speed = Base.PlayerSpeed;
+                _anima[1].speed = Base.PlayerSpeed;
             }
         }
     }
@@ -228,7 +228,6 @@ public class PlayerMovement : MonoBehaviour
                 if(_y1 > _y2)
                 {
                     _currentSpeed = _speed * Base.PlayerSpeed;
-                    _currentSize = _stepSize * Base.PlayerSpeed;
                     currentPosition--;
                     if (currentPosition < 0)
                     {
@@ -236,11 +235,12 @@ public class PlayerMovement : MonoBehaviour
                     }
                     Base.Go = false;
                     Base.Crouch = false;
+                    _anima[0].speed = Base.PlayerSpeed;
+                    _anima[1].speed = Base.PlayerSpeed;
                 }
                 else if(_y1 < _y2)
                 {
                     _currentSpeed = _speed * Base.PlayerSpeed;
-                    _currentSize = _stepSize * Base.PlayerSpeed;
                     currentPosition++;
                     if (currentPosition > 2)
                     {
@@ -248,12 +248,16 @@ public class PlayerMovement : MonoBehaviour
                     }
                     Base.Go = false;
                     Base.Crouch = false;
+                    _anima[0].speed = Base.PlayerSpeed;
+                    _anima[1].speed = Base.PlayerSpeed;
                 }
                 else
                 {
                     BeginCrouch();
                     Base.Go = false;
                     Base.Crouch = true;
+                    _anima[0].speed = Base.PlayerSpeed;
+                    _anima[1].speed = Base.PlayerSpeed;
                 }
             }
         }

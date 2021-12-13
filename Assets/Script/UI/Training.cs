@@ -9,7 +9,7 @@ public class Training : MonoBehaviour
     private int _currentTraining = 0;
     private bool _go = false;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if(collision.CompareTag("Training"))
         {
@@ -29,7 +29,11 @@ public class Training : MonoBehaviour
         }
         else if(collision.CompareTag("Platform"))
         {
-            Base.Training = false;
+            if (Base.Training == true)
+            {
+                Base.Training = false;
+                PlayerPrefs.SetInt("Training", 0);
+            }
         }
     }
 
@@ -40,7 +44,10 @@ public class Training : MonoBehaviour
         {
             Base.Training = true;
         }
-        PlayerPrefs.SetInt("Training", 0);
+        for(int i = 0; i < _trainingWindow.Length; i++)
+        {
+            _trainingWindow[i].SetActive(false);
+        }
     }
 
     private void Update()
@@ -56,10 +63,5 @@ public class Training : MonoBehaviour
                 _go = false;
             }
         }
-    }
-
-    private void OnApplicationQuit()
-    {
-        PlayerPrefs.SetInt("Training", 1);
     }
 }

@@ -22,7 +22,7 @@ public class FireBall : MonoBehaviour
                     _direction = -1;
                 }
                 transform.position += _direction * Vector3.right * _speed * Base.Speed * Time.deltaTime;
-                if (transform.position.x > -2 || transform.position.x < -10)
+                if (transform.position.x > 60 || transform.position.x < -60)
                 {
                     Destroy(this.gameObject);
                 }
