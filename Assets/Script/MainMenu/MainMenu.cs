@@ -35,6 +35,10 @@ public class MainMenu : MonoBehaviour
             _variationInput[1].isOn = true;
         }
         Base.Pause = false;
+        Base.Go = false;
+        Base.Speed = 1;
+        Base.PlayerSpeed = 1;
+        Base.Death = false;
     }
 
     /// <summary>
@@ -156,6 +160,5 @@ public class MainMenu : MonoBehaviour
             Base.PC = false;
             _mobile = true;
         }
-        Debug.Log(Base.Training);
     }
 }

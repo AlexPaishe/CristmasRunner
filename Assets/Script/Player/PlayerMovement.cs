@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public int currentPosition = 1;
     private float _currentSpeed;
     private BoxCollider _box;
+    private ActionWindow _action;
     private bool _death = false;
     private bool _pause = false;
 
@@ -22,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         _box = GetComponent<BoxCollider>();
+        _action = FindObjectOfType<ActionWindow>();
     }
 
     private void Update()
@@ -50,12 +52,14 @@ public class PlayerMovement : MonoBehaviour
                 if(_anima[0].speed !=0)
                 {
                     _anima[0].speed = 0;
+                    _anima[1].speed = 0;
                     _pause = true;
                 }
             }
         }
         else if(Base.Death == true && _death == false)
         {
+            _anima[1].SetTrigger("Death");
             _anima[0].SetTrigger("Death");
             _death = true;
         }
@@ -139,6 +143,7 @@ public class PlayerMovement : MonoBehaviour
             Base.Crouch = false;
             _anima[0].speed = Base.PlayerSpeed;
             _anima[1].speed = Base.PlayerSpeed;
+            _action.NextStep();
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
@@ -152,6 +157,7 @@ public class PlayerMovement : MonoBehaviour
             Base.Crouch = false;
             _anima[0].speed = Base.PlayerSpeed;
             _anima[1].speed = Base.PlayerSpeed;
+            _action.NextStep();
         }
         else if (Input.GetKeyDown(KeyCode.A))
         {
@@ -160,6 +166,7 @@ public class PlayerMovement : MonoBehaviour
             Base.Crouch = true;
             _anima[0].speed = Base.PlayerSpeed;
             _anima[1].speed = Base.PlayerSpeed;
+            _action.NextStep();
         }
     }
 
@@ -183,6 +190,7 @@ public class PlayerMovement : MonoBehaviour
                 Base.Crouch = false;
                 _anima[0].speed = Base.PlayerSpeed;
                 _anima[1].speed = Base.PlayerSpeed;
+                _action.NextStep();
             }
             else if(touch.position.y > _currentHeight/3 && touch.position.y < (_currentHeight/3)*2 
                 && touch.phase == TouchPhase.Began)
@@ -192,6 +200,7 @@ public class PlayerMovement : MonoBehaviour
                 Base.Crouch = true;
                 _anima[0].speed = Base.PlayerSpeed;
                 _anima[1].speed = Base.PlayerSpeed;
+                _action.NextStep();
             }
             else if(touch.position.y > (_currentHeight / 3) * 2 && touch.phase == TouchPhase.Began)
             {
@@ -205,6 +214,7 @@ public class PlayerMovement : MonoBehaviour
                 Base.Crouch = false;
                 _anima[0].speed = Base.PlayerSpeed;
                 _anima[1].speed = Base.PlayerSpeed;
+                _action.NextStep();
             }
         }
     }
@@ -237,6 +247,7 @@ public class PlayerMovement : MonoBehaviour
                     Base.Crouch = false;
                     _anima[0].speed = Base.PlayerSpeed;
                     _anima[1].speed = Base.PlayerSpeed;
+                    _action.NextStep();
                 }
                 else if(_y1 < _y2)
                 {
@@ -250,6 +261,7 @@ public class PlayerMovement : MonoBehaviour
                     Base.Crouch = false;
                     _anima[0].speed = Base.PlayerSpeed;
                     _anima[1].speed = Base.PlayerSpeed;
+                    _action.NextStep();
                 }
                 else
                 {
@@ -258,6 +270,7 @@ public class PlayerMovement : MonoBehaviour
                     Base.Crouch = true;
                     _anima[0].speed = Base.PlayerSpeed;
                     _anima[1].speed = Base.PlayerSpeed;
+                    _action.NextStep();
                 }
             }
         }

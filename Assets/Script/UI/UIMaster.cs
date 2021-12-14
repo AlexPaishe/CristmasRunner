@@ -17,8 +17,6 @@ public class UIMaster : MonoBehaviour
     {
         _score = FindObjectOfType<Score>();
         _after = FindObjectOfType<AfterPause>();
-        Base.PlayerSpeed = PlayerPrefs.GetFloat("HardLevel");
-        Base.Speed = PlayerPrefs.GetFloat("HardLevel");
         Base.Mobile = PlayerPrefs.GetInt("VariationInput");
         Base.Death = false;
         Base.Go = false;
@@ -27,6 +25,8 @@ public class UIMaster : MonoBehaviour
         Base.FireBall = false;
         Base.Crouch = true;
         Base.Pause = false;
+        Base.PlayerSpeed = PlayerPrefs.GetFloat("HardLevel");
+        Base.Speed = PlayerPrefs.GetFloat("HardLevel");
     }
 
     /// <summary>
@@ -58,8 +58,6 @@ public class UIMaster : MonoBehaviour
         {
             _anima.SetBool("Pause", true);
         }
-
-        Debug.Log(Base.Training);
     }
 
     /// <summary>

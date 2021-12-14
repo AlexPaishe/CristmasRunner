@@ -25,10 +25,14 @@ public class ActionWindow : MonoBehaviour
 
     private void Awake()
     {
-        _currentTimer = _timer;
-        _multiply = Base.Speed;
-        _frame.fillAmount = 0;
         _audio = GetComponent<AudioSource>();
+    }
+
+    private void Start()
+    {
+        _multiply = PlayerPrefs.GetFloat("HardLevel");
+        _currentTimer = _timer;
+        _frame.fillAmount = 0;
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -107,16 +111,7 @@ public class ActionWindow : MonoBehaviour
 
         if (_currentTimer < 0)
         {
-            if (_currentLevel == _nextLevel)
-            {
-                _multiply += _step;
-                _currentLevel = 0;
-            }
-            else
-            {
-                _currentLevel++;
-            }
-
+            NextStep();
             Base.Speed = _multiply;
             _cam.cullingMask = _layers[1];
             Base.Go = false;
@@ -142,5 +137,21 @@ public class ActionWindow : MonoBehaviour
         //_audio.pitch = Base.PlayerSpeed;
         //_audio.volume = Base.PlayerSpeed;
         //_audio.Play();
+    }
+
+    /// <summary>
+    /// Ускорение движения
+    /// </summary>
+    public void NextStep()
+    {
+        if (_currentLevel == _nextLevel)
+        {
+            _multiply += _step;
+            _currentLevel = 0;
+        }
+        else
+        {
+            _currentLevel++;
+        }
     }
 }

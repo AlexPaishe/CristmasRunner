@@ -39,7 +39,7 @@ public class Score : MonoBehaviour
     {
         if(collision.CompareTag("Gift"))
         {
-            _giftCount+= 1;
+            _giftCount++;
             if(_giftCount /1000 >= 1)
             {
                 string numer = $"X{_giftCount}";

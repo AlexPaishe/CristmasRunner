@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Training : MonoBehaviour
 {
     [SerializeField] private GameObject[] _trainingWindow;
+    [SerializeField] private Text[] _rulesText;
+    [SerializeField] private string[] _rules;
     private int _training = 1;
     private int _currentTraining = 0;
     private bool _go = false;
@@ -47,6 +50,28 @@ public class Training : MonoBehaviour
         for(int i = 0; i < _trainingWindow.Length; i++)
         {
             _trainingWindow[i].SetActive(false);
+        }
+    }
+
+    private void Start()
+    {
+        if (Base.PC == true)
+        {
+            _rulesText[0].text = _rules[0];
+            _rulesText[1].text = _rules[1];
+        }
+        else
+        {
+            if (Base.Mobile == 0)
+            {
+                _rulesText[0].text = _rules[2];
+                _rulesText[1].text = _rules[3];
+            }
+            else if (Base.Mobile == 1)
+            {
+                _rulesText[0].text = _rules[4];
+                _rulesText[1].text = _rules[5];
+            }
         }
     }
 
