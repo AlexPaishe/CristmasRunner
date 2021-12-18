@@ -17,4 +17,6 @@ public static class Base
     public static int Mobile = 0;
     public static bool PC = true;
     public static bool Hard = false;
+    public static bool Action = false;
+    public static bool Game = false;
 }

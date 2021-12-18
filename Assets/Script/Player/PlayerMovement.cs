@@ -94,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (transform.position != _point[currentPosition])
         {
-            transform.position = Vector3.MoveTowards(transform.position, _point[currentPosition], _currentSpeed);
+            transform.position = Vector3.MoveTowards(transform.position, _point[currentPosition], _currentSpeed * Base.Speed);
         }
         else
         {           
@@ -111,9 +111,17 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     public void BeginCrouch()
     {
-        _anima[0].SetBool("Crouch", true);
+        _anima[0].SetTrigger("BigJump");
+        _anima[1].SetBool("Big", true);
+    }
+
+    /// <summary>
+    /// Изменение колайдера во время большого прыжка
+    /// </summary>
+    public void BigJumping()
+    {
         _box.size = new Vector3(1, 5, 3);
-        _box.center = new Vector3(0, 2, 2);
+        _box.center = new Vector3(0, 7, 2);
     }
 
     /// <summary>
@@ -121,9 +129,16 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     public void EndCrouch()
     {
+        _anima[1].SetBool("Big", false);
+    }
+
+    /// <summary>
+    /// Становление на новую зону
+    /// </summary>
+    public void NewZone()
+    {
         _box.size = new Vector3(1, 5, 3);
         _box.center = new Vector3(0, 2, 2);
-        _anima[0].SetBool("Crouch", false);
     }
 
     /// <summary>
@@ -139,11 +154,16 @@ public class PlayerMovement : MonoBehaviour
             {
                 currentPosition = 2;
             }
-            Base.Go = false;
+            if (Base.Training == true)
+            {
+                Base.Go = false;
+            }
             Base.Crouch = false;
-            _anima[0].speed = Base.PlayerSpeed;
-            _anima[1].speed = Base.PlayerSpeed;
+            _anima[0].speed = _currentSpeed;
+            _anima[1].speed = _currentSpeed;
+            _anima[0].SetTrigger("MiniJump");
             _action.NextStep();
+            Base.Action = true;
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
@@ -153,20 +173,29 @@ public class PlayerMovement : MonoBehaviour
             {
                 currentPosition = 0;
             }
-            Base.Go = false;
+            if (Base.Training == true)
+            {
+                Base.Go = false;
+            }
             Base.Crouch = false;
-            _anima[0].speed = Base.PlayerSpeed;
-            _anima[1].speed = Base.PlayerSpeed;
+            _anima[0].speed = _currentSpeed;
+            _anima[1].speed = _currentSpeed;
+            _anima[0].SetTrigger("MiniJump");
             _action.NextStep();
+            Base.Action = true;
         }
         else if (Input.GetKeyDown(KeyCode.A))
         {
             BeginCrouch();
-            Base.Go = false;
+            if (Base.Training == true)
+            {
+                Base.Go = false;
+            }
             Base.Crouch = true;
-            _anima[0].speed = Base.PlayerSpeed;
-            _anima[1].speed = Base.PlayerSpeed;
+            _anima[0].speed = _currentSpeed;
+            _anima[1].speed = _currentSpeed;
             _action.NextStep();
+            Base.Action = true;
         }
     }
 
@@ -186,21 +215,31 @@ public class PlayerMovement : MonoBehaviour
                 {
                     currentPosition = 0;
                 }
-                Base.Go = false;
+                if (Base.Training == true)
+                {
+                    Base.Go = false;
+                }
                 Base.Crouch = false;
-                _anima[0].speed = Base.PlayerSpeed;
-                _anima[1].speed = Base.PlayerSpeed;
+                _anima[0].speed = _currentSpeed;
+                _anima[1].speed = _currentSpeed;
+                _anima[0].SetTrigger("MiniJump");
                 _action.NextStep();
+                Base.Action = true;
             }
             else if(touch.position.y > _currentHeight/3 && touch.position.y < (_currentHeight/3)*2 
                 && touch.phase == TouchPhase.Began)
             {
                 BeginCrouch();
-                Base.Go = false;
+                if (Base.Training == true)
+                {
+                    Base.Go = false;
+                }
                 Base.Crouch = true;
-                _anima[0].speed = Base.PlayerSpeed;
-                _anima[1].speed = Base.PlayerSpeed;
+                _anima[0].speed = _currentSpeed;
+                _anima[1].speed = _currentSpeed;
+                _anima[0].SetTrigger("MiniJump");
                 _action.NextStep();
+                Base.Action = true;
             }
             else if(touch.position.y > (_currentHeight / 3) * 2 && touch.phase == TouchPhase.Began)
             {
@@ -210,11 +249,15 @@ public class PlayerMovement : MonoBehaviour
                 {
                     currentPosition = 2;
                 }
-                Base.Go = false;
+                if (Base.Training == true)
+                {
+                    Base.Go = false;
+                }
                 Base.Crouch = false;
-                _anima[0].speed = Base.PlayerSpeed;
-                _anima[1].speed = Base.PlayerSpeed;
+                _anima[0].speed = _currentSpeed;
+                _anima[1].speed = _currentSpeed;
                 _action.NextStep();
+                Base.Action = true;
             }
         }
     }
@@ -243,11 +286,16 @@ public class PlayerMovement : MonoBehaviour
                     {
                         currentPosition = 0;
                     }
-                    Base.Go = false;
+                    if (Base.Training == true)
+                    {
+                        Base.Go = false;
+                    }
                     Base.Crouch = false;
-                    _anima[0].speed = Base.PlayerSpeed;
-                    _anima[1].speed = Base.PlayerSpeed;
+                    _anima[0].speed = _currentSpeed;
+                    _anima[1].speed = _currentSpeed;
+                    _anima[0].SetTrigger("MiniJump");
                     _action.NextStep();
+                    Base.Action = true;
                 }
                 else if(_y1 < _y2)
                 {
@@ -257,20 +305,29 @@ public class PlayerMovement : MonoBehaviour
                     {
                         currentPosition = 2;
                     }
-                    Base.Go = false;
+                    if (Base.Training == true)
+                    {
+                        Base.Go = false;
+                    }
                     Base.Crouch = false;
-                    _anima[0].speed = Base.PlayerSpeed;
-                    _anima[1].speed = Base.PlayerSpeed;
+                    _anima[0].speed = _currentSpeed;
+                    _anima[1].speed = _currentSpeed;
+                    _anima[0].SetTrigger("MiniJump");
                     _action.NextStep();
+                    Base.Action = true;
                 }
                 else
                 {
                     BeginCrouch();
-                    Base.Go = false;
+                    if (Base.Training == true)
+                    {
+                        Base.Go = false;
+                    }
                     Base.Crouch = true;
-                    _anima[0].speed = Base.PlayerSpeed;
-                    _anima[1].speed = Base.PlayerSpeed;
+                    _anima[0].speed = _currentSpeed;
+                    _anima[1].speed = _currentSpeed;
                     _action.NextStep();
+                    Base.Action = true;
                 }
             }
         }

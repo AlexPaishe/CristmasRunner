@@ -22,7 +22,7 @@ public class Health : MonoBehaviour
                 _anima[i].speed = 1 * Base.PlayerSpeed;
             }
             HealthBar();
-            Destroy(collision.gameObject);
+            collision.GetComponent<Desolve>().go = true;
         }
 
         if(collision.CompareTag("Damage"))
@@ -33,6 +33,7 @@ public class Health : MonoBehaviour
                 _anima[i].speed = 1 * Base.PlayerSpeed;
             }
             Damage();
+            collision.GetComponent<Desolve>().go = true;
         }
     }
 

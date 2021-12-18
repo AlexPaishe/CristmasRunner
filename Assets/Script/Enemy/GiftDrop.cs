@@ -28,7 +28,8 @@ public class GiftDrop : MonoBehaviour
                 rand = 0;
             }
             Instantiate(_present[rand], _point.position, Quaternion.identity);
-            Destroy(collision.gameObject);
+            collision.GetComponent<Desolve>().go = true;
+            collision.GetComponent<FireBall>().Stop();
         }
     }
 }

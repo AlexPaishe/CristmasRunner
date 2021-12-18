@@ -29,4 +29,12 @@ public class FireBall : MonoBehaviour
             }
         }
     }
+
+    /// <summary>
+    /// Реализация остановки снежка при контакте
+    /// </summary>
+    public void Stop()
+    {
+        _speed = 0;
+    }
 }

@@ -9,10 +9,18 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject[] _menu;
     [SerializeField] private Toggle _training;
     [SerializeField] private Toggle[] _variationInput;
+    [SerializeField] private Text _recordText;
     private bool _mobile = false;
+    private float _record = 0;
 
     private void Awake()
     {
+        if(PlayerPrefs.GetInt("First") == 0)
+        {
+            PlayerPrefs.SetInt("First", 1);
+            SceneManager.LoadScene(0);
+        }
+
         if(PlayerPrefs.GetInt("Training") == 0)
         {
             _training.isOn = false;
@@ -39,6 +47,9 @@ public class MainMenu : MonoBehaviour
         Base.Speed = 1;
         Base.PlayerSpeed = 1;
         Base.Death = false;
+        Base.Game = false;
+
+        ScoreRecord();
     }
 
     /// <summary>
@@ -153,6 +164,31 @@ public class MainMenu : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Реализация выставления рекорда в главном меню
+    /// </summary>
+    private void ScoreRecord()
+    {
+        _record = PlayerPrefs.GetFloat("Record");
+
+        if (_record / 1000 >= 1)
+        {
+            _recordText.text = $"You Record X {_record}";
+        }
+        else if (_record / 100 >= 1)
+        {
+            _recordText.text = $"You Record X 0{_record}";
+        }
+        else if (_record / 10 >= 1)
+        {
+            _recordText.text = $"You Record X 00{_record}";
+        }
+        else if (_record / 10 >= 0)
+        {
+            _recordText.text = $"You Record X 000{_record}";
+        }
+    }
+
     private void Update()
     {
         if(Input.touchCount > 0 && _mobile == false)
@@ -160,5 +196,10 @@ public class MainMenu : MonoBehaviour
             Base.PC = false;
             _mobile = true;
         }
+    }
+
+    private void OnApplicationQuit()
+    {
+        PlayerPrefs.SetInt("First", 0);
     }
 }

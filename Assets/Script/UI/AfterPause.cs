@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class AfterPause : MonoBehaviour
 {
-    [SerializeField] private Text _TimerText;
+    [SerializeField] private Image _timerImage;
+    [SerializeField] private Sprite[] _timerSprites;
     public bool _pause = false;
     private float _timer = 4;
     private float _step;
@@ -21,26 +22,26 @@ public class AfterPause : MonoBehaviour
             _timer -= Time.deltaTime * _step;
             if(_timer > 3)
             {
-                _TimerText.text = "3";
+                _timerImage.sprite = _timerSprites[0];
             }
             else if(_timer > 2 && _timer < 3)
             {
-                _TimerText.text = "2";
+                _timerImage.sprite = _timerSprites[1];
             }
             else if(_timer > 1 && _timer < 2)
             {
-                _TimerText.text = "1";
+                _timerImage.sprite = _timerSprites[2];
             }
             else if (_timer > 0 && _timer < 1)
             {
-                _TimerText.text = "0";
+                _timerImage.sprite = _timerSprites[2];
             }
             else if(_timer < 0)
             {
                 Base.Pause = false;
                 _pause = false;
                 _timer = 4;
-                _TimerText.text = "";
+                _timerImage.sprite = _timerSprites[3];
             }
         }
     }

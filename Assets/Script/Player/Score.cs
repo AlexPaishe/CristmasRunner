@@ -10,11 +10,13 @@ public class Score : MonoBehaviour
 
     private float _giftCount = 0;
     private float _record = 0;
+    private PlayerMovement _player;
 
     public bool death = false;
 
     private void Awake()
     {
+        _player = FindObjectOfType<PlayerMovement>();
         _record = PlayerPrefs.GetFloat("Record");
 
         if (_record / 1000 >= 1)
@@ -60,7 +62,7 @@ public class Score : MonoBehaviour
                 string numer = $"X000{_giftCount}";
                 _scoreText.text = numer;
             }
-            Destroy(collision.gameObject);
+            collision.GetComponent<Desolve>().go = true;
         }
     }
 
@@ -116,5 +118,21 @@ public class Score : MonoBehaviour
     public void Death()
     {
         death = true;
+    }
+
+    /// <summary>
+    /// Реализация окончания высокого прыжка
+    /// </summary>
+    public void EndCrouch()
+    {
+        _player.EndCrouch();
+    }
+
+    /// <summary>
+    /// Реализация изменения коллайдера во время прыжка
+    /// </summary>
+    public void BigJumping()
+    {
+        _player.BigJumping();
     }
 }

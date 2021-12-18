@@ -22,10 +22,12 @@ public class ActionWindow : MonoBehaviour
     private float _stepFrame;
 
     private AudioSource _audio;
+    private PlayerMovement _player;
 
     private void Awake()
     {
         _audio = GetComponent<AudioSource>();
+        _player = FindObjectOfType<PlayerMovement>();
     }
 
     private void Start()
@@ -117,7 +119,11 @@ public class ActionWindow : MonoBehaviour
             Base.Go = false;
             _anima[0].speed = 1 * Base.PlayerSpeed;
             _anima[1].speed = 1 * Base.PlayerSpeed;
-            Base.Crouch = false;
+            if(Base.Action == false)
+            {
+                _anima[0].SetTrigger("MiniJump");
+                Base.Crouch = false;
+            }
         }
     }
 
@@ -133,6 +139,7 @@ public class ActionWindow : MonoBehaviour
         _currentTimer = _timer;
         _currentTimer /= _multiply;
         _frame.fillAmount = 0;
+        _player.NewZone();
         //_anima.speed = Base.PlayerSpeed;
         //_audio.pitch = Base.PlayerSpeed;
         //_audio.volume = Base.PlayerSpeed;
