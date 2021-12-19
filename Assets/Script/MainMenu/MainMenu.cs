@@ -107,7 +107,7 @@ public class MainMenu : MonoBehaviour
     {
         switch(var)
         {
-            case 0: PlayerPrefs.SetFloat("HardLevel", 1); Base.Hard = false; SceneManager.LoadScene(1);break;
+            case 0: PlayerPrefs.SetFloat("HardLevel", 2); Base.Hard = false; SceneManager.LoadScene(1);break;
             case 1: PlayerPrefs.SetFloat("HardLevel", 2); Base.Hard = true; SceneManager.LoadScene(1); break;
         }
     }

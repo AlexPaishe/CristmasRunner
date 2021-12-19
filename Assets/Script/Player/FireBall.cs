@@ -5,7 +5,7 @@ using UnityEngine;
 public class FireBall : MonoBehaviour
 {
     [SerializeField] private float _speed;
-    [SerializeField] private bool _fire;
+    public bool fire;
     private int _direction;
     void Update()
     {
@@ -13,7 +13,7 @@ public class FireBall : MonoBehaviour
         {
             if (Base.Pause == false)
             {
-                if (_fire == true)
+                if (fire == true)
                 {
                     _direction = 1;
                 }
@@ -21,7 +21,15 @@ public class FireBall : MonoBehaviour
                 {
                     _direction = -1;
                 }
-                transform.position += _direction * Vector3.right * _speed * Base.Speed * Time.deltaTime;
+                if (fire == false)
+                {
+                    transform.position += _direction * Vector3.right * _speed * Base.Speed * Time.deltaTime;
+                }
+                else
+                {
+                    transform.position += _direction * Vector3.right * _speed * Base.Speed * Time.deltaTime;
+                }
+
                 if (transform.position.x > 60 || transform.position.x < -60)
                 {
                     Destroy(this.gameObject);

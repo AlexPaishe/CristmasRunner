@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     private float _currentHeight = ScreenMobile.height;
     private float _y1;
     private float _y2;
+    private bool _actionMove = false;
+    private bool _movement = false;
 
     private void Awake()
     {
@@ -38,6 +40,17 @@ public class PlayerMovement : MonoBehaviour
                     _anima[1].speed = Base.PlayerSpeed;
                     _pause = false;
                 }
+
+                if (Base.Go == true && _actionMove == false)
+                {
+                    _movement = true;
+                    _actionMove = true;
+                }
+                else if (Base.Go == false && _actionMove == true)
+                {
+                    _actionMove = false;
+                }
+
                 if (Base.Go == true)
                 {
                     _anima[0].speed = Base.Speed;
@@ -146,7 +159,7 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     private void PCMove()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W) && _movement == true)
         {
             _currentSpeed = _speed * Base.PlayerSpeed;
             currentPosition++;
@@ -164,8 +177,9 @@ public class PlayerMovement : MonoBehaviour
             _anima[0].SetTrigger("MiniJump");
             _action.NextStep();
             Base.Action = true;
+            _movement = false;
         }
-        else if (Input.GetKeyDown(KeyCode.S))
+        else if (Input.GetKeyDown(KeyCode.S) && _movement == true)
         {
             _currentSpeed = _speed * Base.PlayerSpeed;
             currentPosition--;
@@ -183,8 +197,9 @@ public class PlayerMovement : MonoBehaviour
             _anima[0].SetTrigger("MiniJump");
             _action.NextStep();
             Base.Action = true;
+            _movement = false;
         }
-        else if (Input.GetKeyDown(KeyCode.A))
+        else if (Input.GetKeyDown(KeyCode.A) && _movement == true)
         {
             BeginCrouch();
             if (Base.Training == true)
@@ -196,6 +211,7 @@ public class PlayerMovement : MonoBehaviour
             _anima[1].speed = _currentSpeed;
             _action.NextStep();
             Base.Action = true;
+            _movement = false;
         }
     }
 
@@ -207,7 +223,7 @@ public class PlayerMovement : MonoBehaviour
         if(Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
-            if(touch.position.y < _currentHeight/3 && touch.phase == TouchPhase.Began)
+            if(touch.position.y < _currentHeight/3 && touch.phase == TouchPhase.Began && _movement == true)
             {
                 _currentSpeed = _speed * Base.PlayerSpeed;
                 currentPosition--;
@@ -225,9 +241,10 @@ public class PlayerMovement : MonoBehaviour
                 _anima[0].SetTrigger("MiniJump");
                 _action.NextStep();
                 Base.Action = true;
+                _movement = false;
             }
             else if(touch.position.y > _currentHeight/3 && touch.position.y < (_currentHeight/3)*2 
-                && touch.phase == TouchPhase.Began)
+                && touch.phase == TouchPhase.Began && _movement == true)
             {
                 BeginCrouch();
                 if (Base.Training == true)
@@ -240,8 +257,9 @@ public class PlayerMovement : MonoBehaviour
                 _anima[0].SetTrigger("MiniJump");
                 _action.NextStep();
                 Base.Action = true;
+                _movement = false;
             }
-            else if(touch.position.y > (_currentHeight / 3) * 2 && touch.phase == TouchPhase.Began)
+            else if(touch.position.y > (_currentHeight / 3) * 2 && touch.phase == TouchPhase.Began && _movement == true)
             {
                 _currentSpeed = _speed * Base.PlayerSpeed;
                 currentPosition++;
@@ -258,6 +276,7 @@ public class PlayerMovement : MonoBehaviour
                 _anima[1].speed = _currentSpeed;
                 _action.NextStep();
                 Base.Action = true;
+                _movement = false;
             }
         }
     }
@@ -269,12 +288,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.touchCount > 0)
         {
-            if(Input.GetTouch(0).phase == TouchPhase.Began)
+            if(Input.GetTouch(0).phase == TouchPhase.Began && _movement == true)
             {
                 _y1 = Input.GetTouch(0).position.y;
             }
 
-            if(Input.GetTouch(0).phase == TouchPhase.Ended)
+            if(Input.GetTouch(0).phase == TouchPhase.Ended && _movement == true)
             {
                 _y2 = Input.GetTouch(0).position.y;
 
@@ -296,6 +315,7 @@ public class PlayerMovement : MonoBehaviour
                     _anima[0].SetTrigger("MiniJump");
                     _action.NextStep();
                     Base.Action = true;
+                    _movement = false;
                 }
                 else if(_y1 < _y2)
                 {
@@ -315,6 +335,7 @@ public class PlayerMovement : MonoBehaviour
                     _anima[0].SetTrigger("MiniJump");
                     _action.NextStep();
                     Base.Action = true;
+                    _movement = false;
                 }
                 else
                 {
@@ -328,6 +349,7 @@ public class PlayerMovement : MonoBehaviour
                     _anima[1].speed = _currentSpeed;
                     _action.NextStep();
                     Base.Action = true;
+                    _movement = false;
                 }
             }
         }

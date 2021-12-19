@@ -37,6 +37,14 @@ public class Health : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        for(int i = 0; i < _anima.Length; i++)
+        {
+            _anima[i].speed = Base.PlayerSpeed;
+        }
+    }
+
     /// <summary>
     /// Реализация изображения хп в начале игры
     /// </summary>

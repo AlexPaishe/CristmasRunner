@@ -28,6 +28,10 @@ public class GiftDrop : MonoBehaviour
                 rand = 0;
             }
             Instantiate(_present[rand], _point.position, Quaternion.identity);
+            if(collision.GetComponent<FireBall>().fire == true)
+            {
+                collision.GetComponent<SphereCollider>().isTrigger = false;
+            }
             collision.GetComponent<Desolve>().go = true;
             collision.GetComponent<FireBall>().Stop();
         }

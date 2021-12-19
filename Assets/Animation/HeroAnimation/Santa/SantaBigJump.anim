@@ -146,15 +146,15 @@ AnimationClip:
     floatParameter: 0
     intParameter: 10
     messageOptions: 0
-  - time: 1.4833333
-    functionName: Shadow
+  - time: 1.4666667
+    functionName: EndCrouch
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.5
-    functionName: EndCrouch
+  - time: 1.4833333
+    functionName: Shadow
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
