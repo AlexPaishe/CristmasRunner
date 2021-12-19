@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,7 @@ public class Training : MonoBehaviour
 {
     [SerializeField] private GameObject[] _trainingWindow;
     [SerializeField] private Text[] _rulesText;
+    [SerializeField] private TextMeshProUGUI[] _rulesTextMesh;
     [SerializeField] private string[] _rules;
     private int _training = 1;
     private int _currentTraining = 0;
@@ -59,6 +61,8 @@ public class Training : MonoBehaviour
         {
             _rulesText[0].text = _rules[0];
             _rulesText[1].text = _rules[1];
+            _rulesTextMesh[0].text = _rules[0];
+            _rulesTextMesh[1].text = _rules[1];
         }
         else
         {
@@ -66,11 +70,15 @@ public class Training : MonoBehaviour
             {
                 _rulesText[0].text = _rules[2];
                 _rulesText[1].text = _rules[3];
+                _rulesTextMesh[0].text = _rules[2];
+                _rulesTextMesh[1].text = _rules[3];
             }
             else if (Base.Mobile == 1)
             {
                 _rulesText[0].text = _rules[4];
                 _rulesText[1].text = _rules[5];
+                _rulesTextMesh[0].text = _rules[2];
+                _rulesTextMesh[1].text = _rules[3];
             }
         }
     }

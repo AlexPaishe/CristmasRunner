@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Score : MonoBehaviour
 {
     [SerializeField] private Text _scoreText;
+    [SerializeField] private TextMeshProUGUI _scoreTextMesh;
+    [SerializeField] private TextMeshProUGUI _scoreDeathMesh;
     [SerializeField] private Text _scoreDeath;
 
     private float _giftCount = 0;
@@ -22,18 +25,22 @@ public class Score : MonoBehaviour
         if (_record / 1000 >= 1)
         {
             _scoreDeath.text = $"You Record X {_record}";
+            _scoreDeathMesh.text = $"You Record X {_record}";
         }
         else if (_record / 100 >= 1)
         {
             _scoreDeath.text = $"You Record X 0{_record}";
+            _scoreDeathMesh.text = $"You Record X 0{_record}";
         }
         else if (_record / 10 >= 1)
         {
             _scoreDeath.text = $"You Record X 00{_record}";
+            _scoreDeathMesh.text = $"You Record X 00{_record}";
         }
         else if (_record / 10 >= 0)
         {
             _scoreDeath.text = $"You Record X 000{_record}";
+            _scoreDeathMesh.text = $"You Record X 000{_record}";
         }
     }
 
@@ -42,26 +49,25 @@ public class Score : MonoBehaviour
         if(collision.CompareTag("Gift"))
         {
             _giftCount++;
+            string numer = "";
             if(_giftCount /1000 >= 1)
             {
-                string numer = $"X{_giftCount}";
-                _scoreText.text = numer;
+                 numer = $"X{_giftCount}";
             }
             else if(_giftCount/100 >= 1)
             {
-                string numer = $"X0{_giftCount}";
-                _scoreText.text = numer;
+                 numer = $"X0{_giftCount}";
             }
             else if (_giftCount/10 >= 1)
             {
-                string numer = $"X00{_giftCount}";
-                _scoreText.text = numer;
+                 numer = $"X00{_giftCount}";
             }
             else if (_giftCount /10 > 0)
             {
-                string numer = $"X000{_giftCount}";
-                _scoreText.text = numer;
+                 numer = $"X000{_giftCount}";
             }
+            _scoreText.text = numer;
+            _scoreTextMesh.text = numer;
             collision.GetComponent<Desolve>().go = true;
         }
     }
@@ -76,18 +82,22 @@ public class Score : MonoBehaviour
                 if (_giftCount / 1000 >= 1)
                 {
                     _scoreDeath.text = $"New Record X {_giftCount}";
+                    _scoreDeathMesh.text = $"New Record X {_giftCount}";
                 }
                 else if (_giftCount / 100 >= 1)
                 {
                     _scoreDeath.text = $"New Record X 0{_giftCount}";
+                    _scoreDeathMesh.text = $"New Record X 0{_giftCount}";
                 }
                 else if (_giftCount / 10 >= 1)
                 {
                     _scoreDeath.text = $"New Record X 00{_giftCount}";
+                    _scoreDeathMesh.text = $"New Record X 00{_giftCount}";
                 }
                 else if (_giftCount / 10 >= 0)
                 {
                     _scoreDeath.text = $"New Record X 000{_giftCount}";
+                    _scoreDeathMesh.text = $"New Record X 000{_giftCount}";
                 }
             }
             else if (_giftCount == _record || _giftCount < _record)
@@ -95,18 +105,22 @@ public class Score : MonoBehaviour
                 if (_giftCount / 1000 >= 1)
                 {
                     _scoreDeath.text = $"You Score X {_giftCount}";
+                    _scoreDeathMesh.text = $"You Score X {_giftCount}";
                 }
                 else if (_giftCount / 100 >= 1)
                 {
                     _scoreDeath.text = $"You Score X 0{_giftCount}";
+                    _scoreDeathMesh.text = $"You Score X 0{_giftCount}";
                 }
                 else if (_giftCount / 10 >= 1)
                 {
                     _scoreDeath.text = $"You Score X 00{_giftCount}";
+                    _scoreDeathMesh.text = $"You Score X 00{_giftCount}";
                 }
                 else if (_giftCount / 10 >= 0)
                 {
                     _scoreDeath.text = $"You Score X 000{_giftCount}";
+                    _scoreDeathMesh.text = $"You Score X 000{_giftCount}";
                 }
             }
         }

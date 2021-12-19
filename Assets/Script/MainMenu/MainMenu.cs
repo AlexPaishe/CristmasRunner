@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,6 +11,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Toggle _training;
     [SerializeField] private Toggle[] _variationInput;
     [SerializeField] private Text _recordText;
+    [SerializeField] private TextMeshProUGUI _recordTextMesh;
     private bool _mobile = false;
     private float _record = 0;
 
@@ -174,18 +176,22 @@ public class MainMenu : MonoBehaviour
         if (_record / 1000 >= 1)
         {
             _recordText.text = $"You Record X {_record}";
+            _recordTextMesh.text = $"You Record X {_record}";
         }
         else if (_record / 100 >= 1)
         {
             _recordText.text = $"You Record X 0{_record}";
+            _recordTextMesh.text = $"You Record X 0{_record}";
         }
         else if (_record / 10 >= 1)
         {
             _recordText.text = $"You Record X 00{_record}";
+            _recordTextMesh.text = $"You Record X 00{_record}";
         }
         else if (_record / 10 >= 0)
         {
             _recordText.text = $"You Record X 000{_record}";
+            _recordTextMesh.text = $"You Record X 000{_record}";
         }
     }
 

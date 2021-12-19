@@ -34,14 +34,14 @@ public class AfterPause : MonoBehaviour
             }
             else if (_timer > 0 && _timer < 1)
             {
-                _timerImage.sprite = _timerSprites[2];
+                _timerImage.sprite = _timerSprites[3];
             }
             else if(_timer < 0)
             {
                 Base.Pause = false;
                 _pause = false;
                 _timer = 4;
-                _timerImage.sprite = _timerSprites[3];
+                _timerImage.sprite = _timerSprites[4];
             }
         }
     }

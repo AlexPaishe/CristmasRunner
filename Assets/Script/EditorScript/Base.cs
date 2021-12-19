@@ -19,4 +19,5 @@ public static class Base
     public static bool Hard = false;
     public static bool Action = false;
     public static bool Game = false;
+    public static int House = 0;
 }

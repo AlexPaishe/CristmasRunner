@@ -41,15 +41,6 @@ AnimationClip:
     path: 
     classID: 212
     script: {fileID: 0}
-  - curve:
-    - time: 0
-      value: {fileID: 2100000, guid: f4a3b6fea61374b4388d4da33f32ac31, type: 2}
-    - time: 1.5333333
-      value: {fileID: 2100000, guid: f4a3b6fea61374b4388d4da33f32ac31, type: 2}
-    attribute: m_Materials.Array.data[0]
-    path: Santa
-    classID: 23
-    script: {fileID: 0}
   m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
@@ -64,13 +55,6 @@ AnimationClip:
       typeID: 212
       customType: 23
       isPPtrCurve: 1
-    - serializedVersion: 2
-      path: 161798518
-      attribute: 0
-      script: {fileID: 0}
-      typeID: 23
-      customType: 21
-      isPPtrCurve: 1
     pptrCurveMapping:
     - {fileID: -121407776426117632, guid: 0390b421e719c2f43b1c6577bf4498a4, type: 3}
     - {fileID: 21300000, guid: 612b665fc668aa5499b757f917a1f4c4, type: 3}
@@ -81,14 +65,12 @@ AnimationClip:
     - {fileID: 21300000, guid: 4518a26910f58bf4bb1761a417fca7ff, type: 3}
     - {fileID: 21300000, guid: 612b665fc668aa5499b757f917a1f4c4, type: 3}
     - {fileID: -121407776426117632, guid: 0390b421e719c2f43b1c6577bf4498a4, type: 3}
-    - {fileID: 2100000, guid: f4a3b6fea61374b4388d4da33f32ac31, type: 2}
-    - {fileID: 2100000, guid: f4a3b6fea61374b4388d4da33f32ac31, type: 2}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.55
+    m_StopTime: 1.5
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

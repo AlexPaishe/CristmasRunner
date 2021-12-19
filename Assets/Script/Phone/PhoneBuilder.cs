@@ -31,7 +31,7 @@ public class PhoneBuilder : MonoBehaviour
     /// </summary>
     private void Init()
     {
-        for(int i = 0; i < 8; i++)
+        for(int i = 0; i < 20; i++)
         {
             CreatPhone();
         }

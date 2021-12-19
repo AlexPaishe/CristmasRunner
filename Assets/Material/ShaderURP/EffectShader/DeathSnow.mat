@@ -51,11 +51,12 @@ Material:
     - _BumpIntensity: 1
     - _Cutoff: 0.5
     - _Fade: 1
-    - _Metallic: 0.6
+    - _Metallic: 0.4
     - _Noise: 50
-    - _NormalStrong: 1
+    - _NormalStrong: 0.5
     - _Smothness: 0.3
     m_Colors:
+    - _AlbedoColor: {r: 1, g: 1, b: 1, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _NeonColor: {r: 0, g: 1.5457559, b: 11.984314, a: 0}
   m_BuildTextureStacks: []
