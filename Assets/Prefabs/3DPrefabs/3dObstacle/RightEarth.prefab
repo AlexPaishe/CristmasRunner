@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3457879330831798482}
   - component: {fileID: 9078391213406106739}
   - component: {fileID: 5114863032928227161}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Earth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,7 +48,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1562499550664450044}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 6117094981323434144}
   - component: {fileID: 6117094981323434151}
   - component: {fileID: 6117094981323434150}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: RightEarth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
