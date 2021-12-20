@@ -28,6 +28,12 @@ public class PlayerMovement : MonoBehaviour
         _action = FindObjectOfType<ActionWindow>();
     }
 
+    private void Start()
+    {
+        _anima[0].speed = Base.PlayerSpeed;
+        _anima[1].speed = Base.PlayerSpeed;
+    }
+
     private void Update()
     {
         if (Base.Death == false)

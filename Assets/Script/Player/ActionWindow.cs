@@ -21,12 +21,10 @@ public class ActionWindow : MonoBehaviour
     private float _multiply;
     private float _stepFrame;
 
-    private AudioSource _audio;
     private PlayerMovement _player;
 
     private void Awake()
     {
-        _audio = GetComponent<AudioSource>();
         _player = FindObjectOfType<PlayerMovement>();
     }
 
@@ -87,7 +85,7 @@ public class ActionWindow : MonoBehaviour
             {
                 if (Base.Go == true && _static == true && _go == true)
                 {
-                    StaticVariation();
+                    StaticVariation();                   
                 }
                 else if (Base.Go == false && _go == true)
                 {
@@ -140,10 +138,6 @@ public class ActionWindow : MonoBehaviour
         _currentTimer /= _multiply;
         _frame.fillAmount = 0;
         _player.NewZone();
-        //_anima.speed = Base.PlayerSpeed;
-        //_audio.pitch = Base.PlayerSpeed;
-        //_audio.volume = Base.PlayerSpeed;
-        //_audio.Play();
     }
 
     /// <summary>
@@ -160,5 +154,19 @@ public class ActionWindow : MonoBehaviour
         {
             _currentLevel++;
         }
+    }
+
+    /// <summary>
+    /// Переход на новую ступень
+    /// </summary>
+    /// <returns></returns>
+    public bool Next()
+    {
+        bool Yes = false;
+        if(_currentLevel == 0)
+        {
+            Yes = true;
+        }
+        return Yes;
     }
 }

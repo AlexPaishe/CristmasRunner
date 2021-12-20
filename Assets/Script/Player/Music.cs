@@ -8,10 +8,12 @@ public class Music : MonoBehaviour
     [SerializeField] private float _speed;
     private bool _go = false;
     private float _beginMusic;
+    private ActionWindow _action;
 
     private void Start()
     {
         _beginMusic = Base.PlayerSpeed;
+        _action = FindObjectOfType<ActionWindow>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -30,9 +32,14 @@ public class Music : MonoBehaviour
 
     void Update()
     {
-        if(_music.isPlaying == false)
+        if (_music.isPlaying == false)
         {
             _go = false;
         }
+
+        //if(_action.Next() == true)
+        //{
+        //    _go = false;
+        //}
     }
 }

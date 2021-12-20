@@ -10,10 +10,10 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject[] _menu;
     [SerializeField] private Toggle _training;
     [SerializeField] private Toggle[] _variationInput;
-    [SerializeField] private Text _recordText;
-    [SerializeField] private TextMeshProUGUI _recordTextMesh;
+    [SerializeField] private TextMeshProUGUI [] _recordTextMesh;
+    private string[] _nameRecord = new string[2] { "Easy","Hard"};
     private bool _mobile = false;
-    private float _record = 0;
+    private float[] _record = new float[2] {0,0};
 
     private void Awake()
     {
@@ -171,27 +171,42 @@ public class MainMenu : MonoBehaviour
     /// </summary>
     private void ScoreRecord()
     {
-        _record = PlayerPrefs.GetFloat("Record");
+        _record[0] = PlayerPrefs.GetFloat("Record");
+        _record[1] = PlayerPrefs.GetFloat("HardRecord");
 
-        if (_record / 1000 >= 1)
+        for(int i = 0; i < _recordTextMesh.Length; i++)
         {
-            _recordText.text = $"You Record X {_record}";
-            _recordTextMesh.text = $"You Record X {_record}";
+            if (_record[i] / 1000 >= 1)
+            {
+                _recordTextMesh[i].text = $"{_nameRecord[i]} X {_record[i]}";
+            }
+            else if (_record[i] / 100 >= 1)
+            {
+                _recordTextMesh[i].text = $"{_nameRecord[i]} X 0{_record[i]}";
+            }
+            else if (_record[i] / 10 >= 1)
+            {
+                _recordTextMesh[i].text = $"{_nameRecord[i]} X 00{_record[i]}";
+            }
+            else if (_record[i] / 10 >= 0)
+            {
+                _recordTextMesh[i].text = $"{_nameRecord[i]} X 000{_record[i]}";
+            }
         }
-        else if (_record / 100 >= 1)
+    }
+
+    /// <summary>
+    /// Реализация включения и выключения меню рекордов
+    /// </summary>
+    public void RecordMenu()
+    {
+        if (_menu[3].activeSelf)
         {
-            _recordText.text = $"You Record X 0{_record}";
-            _recordTextMesh.text = $"You Record X 0{_record}";
+            _menu[3].SetActive(false);
         }
-        else if (_record / 10 >= 1)
+        else
         {
-            _recordText.text = $"You Record X 00{_record}";
-            _recordTextMesh.text = $"You Record X 00{_record}";
-        }
-        else if (_record / 10 >= 0)
-        {
-            _recordText.text = $"You Record X 000{_record}";
-            _recordTextMesh.text = $"You Record X 000{_record}";
+            _menu[3].SetActive(true);
         }
     }
 

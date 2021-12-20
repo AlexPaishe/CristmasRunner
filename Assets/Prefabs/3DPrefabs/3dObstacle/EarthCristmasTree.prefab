@@ -228,7 +228,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 74364aeb19facfe4f9a8d196156d936e, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -322,6 +322,10 @@ PrefabInstance:
     - target: {fileID: 6817170450544851753, guid: 9e65471edf716194ea30ebfe922c5b39, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 8500773512839673693, guid: 9e65471edf716194ea30ebfe922c5b39, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8500773512839673693, guid: 9e65471edf716194ea30ebfe922c5b39, type: 3}
       propertyPath: m_Materials.Array.data[0]
