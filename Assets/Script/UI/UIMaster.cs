@@ -56,20 +56,4 @@ public class UIMaster : MonoBehaviour
             _anima.SetBool("Pause", true);
         }
     }
-
-    /// <summary>
-    /// Перезагрузка Уровня
-    /// </summary>
-    public void Restart()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
-    /// <summary>
-    /// /РЕализация выхода в меню
-    /// </summary>
-    public void Menu()
-    {
-        SceneManager.LoadScene(0);
-    }
 }

@@ -13,7 +13,7 @@ public class MovePhone : MonoBehaviour
         if (Base.Go == false && Base.Death == false && Base.Pause == false)
         {
             _offset += _speed * Time.deltaTime;
-            _mat.SetFloat("_Offset", _offset);
+            _mat.mainTextureOffset = new Vector2(_offset, 0);
         }
     }
 }

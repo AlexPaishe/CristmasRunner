@@ -46,8 +46,8 @@ public class MainMenu : MonoBehaviour
         }
         Base.Pause = false;
         Base.Go = false;
-        Base.Speed = 1;
-        Base.PlayerSpeed = 1;
+        Base.Speed = PlayerPrefs.GetFloat("HardLevel");
+        Base.PlayerSpeed = PlayerPrefs.GetFloat("HardLevel");
         Base.Death = false;
         Base.Game = false;
 
@@ -107,8 +107,8 @@ public class MainMenu : MonoBehaviour
     {
         switch(var)
         {
-            case 0: PlayerPrefs.SetFloat("HardLevel", 2); Base.Hard = false; SceneManager.LoadScene(1);break;
-            case 1: PlayerPrefs.SetFloat("HardLevel", 2); Base.Hard = true; SceneManager.LoadScene(1); break;
+            case 0: PlayerPrefs.SetFloat("HardLevel", 2); Base.Hard = false; break;
+            case 1: PlayerPrefs.SetFloat("HardLevel", 2); Base.Hard = true; break;
         }
     }
 

@@ -21,19 +21,19 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: 21300000, guid: f0d70fca599e1e34cb87db510b6b1458, type: 3}
-    - time: 0.16666667
-      value: {fileID: 21300000, guid: 58be57b3271ad9c43ac90424f8af86a4, type: 3}
     - time: 0.33333334
-      value: {fileID: 21300000, guid: b0a1bec0f8fc722479b2283937aed93a, type: 3}
-    - time: 0.5
-      value: {fileID: 21300000, guid: b23bcf5c50eaa3a47a9b566be7446a80, type: 3}
+      value: {fileID: 21300000, guid: 58be57b3271ad9c43ac90424f8af86a4, type: 3}
     - time: 0.6666667
-      value: {fileID: 21300000, guid: 10449caeb8d5e5d4283bc3c8ba5057f8, type: 3}
-    - time: 0.8333333
-      value: {fileID: 21300000, guid: 4b17c46849f432b44b12f4139c3370da, type: 3}
+      value: {fileID: 21300000, guid: b0a1bec0f8fc722479b2283937aed93a, type: 3}
     - time: 1
+      value: {fileID: 21300000, guid: b23bcf5c50eaa3a47a9b566be7446a80, type: 3}
+    - time: 1.3333334
+      value: {fileID: 21300000, guid: 10449caeb8d5e5d4283bc3c8ba5057f8, type: 3}
+    - time: 1.6666666
+      value: {fileID: 21300000, guid: 4b17c46849f432b44b12f4139c3370da, type: 3}
+    - time: 2
       value: {fileID: 21300000, guid: 60450ba6fd0f98346b6ed33da5c0eef2, type: 3}
-    - time: 1.1666666
+    - time: 2.3333333
       value: {fileID: 21300000, guid: 18e1ce4d5a9079249b8266ef5ae71579, type: 3}
     attribute: m_Sprite
     path: 
@@ -41,21 +41,21 @@ AnimationClip:
     script: {fileID: 0}
   - curve:
     - time: 0
-      value: {fileID: 2100000, guid: 8383de044c5435b4793683ff8a26d8b6, type: 2}
-    - time: 0.16666667
-      value: {fileID: 2100000, guid: 5b396f8aa829a7344a88708b2cb644e3, type: 2}
+      value: {fileID: 0}
     - time: 0.33333334
-      value: {fileID: 2100000, guid: 817f944d7c7b6b145b7273a5098a97d2, type: 2}
-    - time: 0.5
-      value: {fileID: 2100000, guid: b3623197f6ed6c44997bbcafeeba8b76, type: 2}
+      value: {fileID: 0}
     - time: 0.6666667
-      value: {fileID: 2100000, guid: feea1fb4f43f88a4caadf9bcc707161c, type: 2}
-    - time: 0.8333333
-      value: {fileID: 2100000, guid: 7d0b1eb2f67f68d4486258aced76fd55, type: 2}
+      value: {fileID: 0}
     - time: 1
-      value: {fileID: 2100000, guid: 860b81a8fe7b8ec478c9b08d2091d54c, type: 2}
-    - time: 1.1666666
-      value: {fileID: 2100000, guid: 3f1e40579ece2aa4daaf40a008ebc276, type: 2}
+      value: {fileID: 0}
+    - time: 1.3333334
+      value: {fileID: 0}
+    - time: 1.6666666
+      value: {fileID: 0}
+    - time: 2
+      value: {fileID: 0}
+    - time: 2.3333333
+      value: {fileID: 0}
     attribute: m_Materials.Array.data[0]
     path: 
     classID: 212
@@ -90,20 +90,20 @@ AnimationClip:
     - {fileID: 21300000, guid: 4b17c46849f432b44b12f4139c3370da, type: 3}
     - {fileID: 21300000, guid: 60450ba6fd0f98346b6ed33da5c0eef2, type: 3}
     - {fileID: 21300000, guid: 18e1ce4d5a9079249b8266ef5ae71579, type: 3}
-    - {fileID: 2100000, guid: 8383de044c5435b4793683ff8a26d8b6, type: 2}
-    - {fileID: 2100000, guid: 5b396f8aa829a7344a88708b2cb644e3, type: 2}
-    - {fileID: 2100000, guid: 817f944d7c7b6b145b7273a5098a97d2, type: 2}
-    - {fileID: 2100000, guid: b3623197f6ed6c44997bbcafeeba8b76, type: 2}
-    - {fileID: 2100000, guid: feea1fb4f43f88a4caadf9bcc707161c, type: 2}
-    - {fileID: 2100000, guid: 7d0b1eb2f67f68d4486258aced76fd55, type: 2}
-    - {fileID: 2100000, guid: 860b81a8fe7b8ec478c9b08d2091d54c, type: 2}
-    - {fileID: 2100000, guid: 3f1e40579ece2aa4daaf40a008ebc276, type: 2}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.25
+    m_StopTime: 2.4166665
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -130,21 +130,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.16666667
-    functionName: ShadowMat
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
   - time: 0.33333334
-    functionName: ShadowMat
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.5
     functionName: ShadowMat
     data: 
     objectReferenceParameter: {fileID: 0}
@@ -158,13 +144,6 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.8333333
-    functionName: ShadowMat
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
   - time: 1
     functionName: ShadowMat
     data: 
@@ -172,7 +151,28 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.1666666
+  - time: 1.3333334
+    functionName: ShadowMat
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.6666666
+    functionName: ShadowMat
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2
+    functionName: ShadowMat
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2.3333333
     functionName: ShadowMat
     data: 
     objectReferenceParameter: {fileID: 0}

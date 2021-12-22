@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class SantaShadow : MonoBehaviour
 {
-    [SerializeField] private Material _mat;
-    [SerializeField] private Texture2D[] _albedo;
-    [SerializeField] private Texture2D[] _normal;
+    [SerializeField] private Material[] _mat;
     [SerializeField] private GameObject _obj;
     [SerializeField] private Vector3[] _size;
     [SerializeField] private Vector3[] _points;
@@ -24,8 +22,7 @@ public class SantaShadow : MonoBehaviour
     /// <param name="var"></param>
     public void Shadow(int var)
     {
-        _mat.SetTexture("_NormalMap", _normal[var]);
-        _mat.SetTexture("_MainTexture", _albedo[var]);
+        _mesh.material = _mat[var];
         _obj.transform.localPosition = _points[var];
         _obj.transform.localScale = _size[var];
     }

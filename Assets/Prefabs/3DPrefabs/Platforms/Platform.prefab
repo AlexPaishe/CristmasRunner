@@ -164,7 +164,7 @@ MonoBehaviour:
   - {fileID: 306397344637079774, guid: 45f8285a5fabea04192e85cacb9c93ea, type: 3}
   - {fileID: 306397344637079774, guid: 6d7d8999d042b1847ba7b03499ddc3eb, type: 3}
   - {fileID: 306397344637079774, guid: 6d7d8999d042b1847ba7b03499ddc3eb, type: 3}
-  _freePlatform: {fileID: 6117094981323434149, guid: 9e3bf59fdad7a134982cd6f938a3eb62, type: 3}
+  _freePlatform: {fileID: 6117094981323434149, guid: fbfb820fc0642184b9ddf640111d328c, type: 3}
   CurrentPlatformFree: 0
 --- !u!1 &5787372775925623810
 GameObject:
