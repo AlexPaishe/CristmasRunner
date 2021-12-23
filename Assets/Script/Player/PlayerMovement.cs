@@ -12,7 +12,6 @@ public class PlayerMovement : MonoBehaviour
     public int currentPosition = 1;
     private float _currentSpeed;
     private BoxCollider _box;
-    private ActionWindow _action;
     private bool _death = false;
     private bool _pause = false;
 
@@ -25,7 +24,6 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         _box = GetComponent<BoxCollider>();
-        _action = FindObjectOfType<ActionWindow>();
     }
 
     private void Start()
@@ -181,7 +179,6 @@ public class PlayerMovement : MonoBehaviour
             _anima[0].speed = _currentSpeed;
             _anima[1].speed = _currentSpeed;
             _anima[0].SetTrigger("MiniJump");
-            _action.NextStep();
             Base.Action = true;
             _movement = false;
         }
@@ -201,7 +198,6 @@ public class PlayerMovement : MonoBehaviour
             _anima[0].speed = _currentSpeed;
             _anima[1].speed = _currentSpeed;
             _anima[0].SetTrigger("MiniJump");
-            _action.NextStep();
             Base.Action = true;
             _movement = false;
         }
@@ -215,7 +211,6 @@ public class PlayerMovement : MonoBehaviour
             Base.Crouch = true;
             _anima[0].speed = _currentSpeed;
             _anima[1].speed = _currentSpeed;
-            _action.NextStep();
             Base.Action = true;
             _movement = false;
         }
@@ -245,7 +240,6 @@ public class PlayerMovement : MonoBehaviour
                 _anima[0].speed = _currentSpeed;
                 _anima[1].speed = _currentSpeed;
                 _anima[0].SetTrigger("MiniJump");
-                _action.NextStep();
                 Base.Action = true;
                 _movement = false;
             }
@@ -261,7 +255,6 @@ public class PlayerMovement : MonoBehaviour
                 _anima[0].speed = _currentSpeed;
                 _anima[1].speed = _currentSpeed;
                 _anima[0].SetTrigger("MiniJump");
-                _action.NextStep();
                 Base.Action = true;
                 _movement = false;
             }
@@ -280,7 +273,6 @@ public class PlayerMovement : MonoBehaviour
                 Base.Crouch = false;
                 _anima[0].speed = _currentSpeed;
                 _anima[1].speed = _currentSpeed;
-                _action.NextStep();
                 Base.Action = true;
                 _movement = false;
             }
@@ -319,7 +311,6 @@ public class PlayerMovement : MonoBehaviour
                     _anima[0].speed = _currentSpeed;
                     _anima[1].speed = _currentSpeed;
                     _anima[0].SetTrigger("MiniJump");
-                    _action.NextStep();
                     Base.Action = true;
                     _movement = false;
                 }
@@ -339,7 +330,6 @@ public class PlayerMovement : MonoBehaviour
                     _anima[0].speed = _currentSpeed;
                     _anima[1].speed = _currentSpeed;
                     _anima[0].SetTrigger("MiniJump");
-                    _action.NextStep();
                     Base.Action = true;
                     _movement = false;
                 }
@@ -353,7 +343,6 @@ public class PlayerMovement : MonoBehaviour
                     Base.Crouch = true;
                     _anima[0].speed = _currentSpeed;
                     _anima[1].speed = _currentSpeed;
-                    _action.NextStep();
                     Base.Action = true;
                     _movement = false;
                 }

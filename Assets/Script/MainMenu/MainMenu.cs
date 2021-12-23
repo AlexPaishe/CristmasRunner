@@ -11,6 +11,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Toggle _training;
     [SerializeField] private Toggle[] _variationInput;
     [SerializeField] private TextMeshProUGUI [] _recordTextMesh;
+    [SerializeField] private AudioSource _click;
     private string[] _nameRecord = new string[2] { "Easy","Hard"};
     private bool _mobile = false;
     private float[] _record = new float[2] {0,0};
@@ -25,13 +26,13 @@ public class MainMenu : MonoBehaviour
 
         if(PlayerPrefs.GetInt("Training") == 0)
         {
-            _training.isOn = false;
-            Base.Training = false;
+            _training.isOn = true;
+            Base.Training = true;
         }
         else if (PlayerPrefs.GetInt("Training") == 1)
         {
-            _training.isOn = true;
-            Base.Training = true;
+            _training.isOn = false;
+            Base.Training = false;
         }
 
         if(PlayerPrefs.GetInt("VariationInput") == 0)
@@ -120,12 +121,12 @@ public class MainMenu : MonoBehaviour
     {
         if(var == true)
         {
-            PlayerPrefs.SetInt("Training", 1);
+            PlayerPrefs.SetInt("Training", 0);
             Base.Training = true;
         }
         else
         {
-            PlayerPrefs.SetInt("Training", 0);
+            PlayerPrefs.SetInt("Training", 1);
             Base.Training = false;
         }
     }
@@ -208,6 +209,14 @@ public class MainMenu : MonoBehaviour
         {
             _menu[3].SetActive(true);
         }
+    }
+
+    /// <summary>
+    /// Реализация клика
+    /// </summary>
+    public void Click()
+    {
+        _click.Play();
     }
 
     private void Update()

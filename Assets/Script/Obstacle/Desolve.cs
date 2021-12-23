@@ -4,21 +4,41 @@ using UnityEngine;
 
 public class Desolve : MonoBehaviour
 {
-    [SerializeField] private float _step;
-    [SerializeField] private MeshRenderer _mesh;
+    [SerializeField] private GameObject _obj;
+    [SerializeField] private Material[] _mats;
+    private Animator _anima;
+    private MeshRenderer _mesh;
     public bool go = false;
-    private float _fade = 1;
+
+    private void Awake()
+    {
+        _anima = GetComponent<Animator>();
+        _mesh = _obj.GetComponent<MeshRenderer>();
+    }
 
     void Update()
     {
         if(go == true)
         {
-            _fade -= Time.deltaTime * _step;
-            if(_fade <= 0)
-            {
-                Destroy(this.gameObject);
-            }
-            _mesh.material.SetFloat("_Fade", _fade);
+            _anima.SetTrigger("Death");
+            go = false;
         }
+    }
+
+    /// <summary>
+    /// Реализация уничтожения обЪекта
+    /// </summary>
+    public void Death()
+    {
+        Destroy(this.gameObject);
+    }
+
+    /// <summary>
+    /// Реализация смены вида обЪекта
+    /// </summary>
+    /// <param name="var"></param>
+    public void NewDesolve(int var)
+    {
+        _mesh.material = _mats[var];
     }
 }

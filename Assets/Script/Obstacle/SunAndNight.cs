@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class SunAndNight : MonoBehaviour
 {
-    [SerializeField] private Material[] _obstacle;
-    [SerializeField] private Texture2D[] _albedo;
-    [SerializeField] private Texture2D[] _normal;
+    [SerializeField] private GameObject _light;
+    [SerializeField] private float _speed;
+    [SerializeField] private float _night;
     private bool _go = false;
+    private float _currentStep = 130;
 
     void Update()
     {
@@ -21,20 +22,22 @@ public class SunAndNight : MonoBehaviour
     {
         if(Base.Go == true && _go == false)
         {
-            _go = true;
-            for (int i = 0; i < _obstacle.Length; i++)
+            _currentStep += _speed * Base.PlayerSpeed;
+            _light.transform.eulerAngles = new Vector3(_currentStep, 180, 0);
+            if(_currentStep > _night)
             {
-                _obstacle[i].SetTexture("_MainTex", _albedo[i*i]);
-                _obstacle[i].SetTexture("_NormalMap", _normal[i*i]);
+                _go = true;
+                _currentStep = _night;
             }
         }
         else if (Base.Go == false && _go == true)
         {
-            _go = false;
-            for (int i = 0; i < _obstacle.Length; i++)
+            _currentStep -= _speed * Base.PlayerSpeed;
+            _light.transform.eulerAngles = new Vector3(_currentStep, 180, 0);
+            if (_currentStep < 130)
             {
-                _obstacle[i].SetTexture("_MainTex", _albedo[i+2]);
-                _obstacle[i].SetTexture("_NormalMap", _normal[i+2]);
+                _go = false;
+                _currentStep = 130;
             }
         }
     }

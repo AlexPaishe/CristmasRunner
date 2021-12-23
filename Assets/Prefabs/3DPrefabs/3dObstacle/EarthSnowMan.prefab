@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3583972951230522468}
   - component: {fileID: 6975942263273641662}
   - component: {fileID: 5237515648917100497}
+  - component: {fileID: 4674580798595294535}
   m_Layer: 0
   m_Name: CristmasTree
   m_TagString: Damage
@@ -27,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 294826766762013054}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -2.5}
+  m_LocalPosition: {x: -0.5, y: 0, z: -2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4148941232776332168}
@@ -75,9 +76,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbb8c0f0f4810034da647ded09cb348e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _step: 1
-  _mesh: {fileID: 4148941232776332174}
+  _obj: {fileID: 4148941232776332172}
+  _mats:
+  - {fileID: 2100000, guid: 772a6d4978e4ddd4ca0a00566747f4dc, type: 2}
+  - {fileID: 2100000, guid: 0f9cf995409ca974ba2587ffe69fff4d, type: 2}
+  - {fileID: 2100000, guid: fdfd588900c0edb4dbf503bde21d1d77, type: 2}
+  - {fileID: 2100000, guid: d6a0e293b4f8eab4bbbdd32e6ad8146c, type: 2}
+  - {fileID: 2100000, guid: 64d56c300f9964d49a1edcf4a9cb5cbb, type: 2}
+  - {fileID: 2100000, guid: ea0afafea2186a8419fad59379be99d4, type: 2}
   go: 0
+--- !u!95 &4674580798595294535
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 294826766762013054}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 39bccaed86beebc4b98288cc9f68102a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &306397344637079774
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,13 +283,13 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 35b60f56ce341f442bb0c81a117acc8c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 124e09a380b675a4f9e90dc14daf554f, type: 3}
+--- !u!1 &4148941232776332172 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2218611523809305292, guid: 124e09a380b675a4f9e90dc14daf554f, type: 3}
+  m_PrefabInstance: {fileID: 2836730639563563328}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4148941232776332168 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2218611523809305288, guid: 124e09a380b675a4f9e90dc14daf554f, type: 3}
-  m_PrefabInstance: {fileID: 2836730639563563328}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &4148941232776332174 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 2218611523809305294, guid: 124e09a380b675a4f9e90dc14daf554f, type: 3}
   m_PrefabInstance: {fileID: 2836730639563563328}
   m_PrefabAsset: {fileID: 0}

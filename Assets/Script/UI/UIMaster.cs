@@ -10,6 +10,7 @@ public class UIMaster : MonoBehaviour
     private bool _go = true;
     private Score _score;
     private AfterPause _after;
+    private AudioSource _audio;
 
     private void Awake()
     {
@@ -26,6 +27,7 @@ public class UIMaster : MonoBehaviour
         Base.Game = true;
         Base.PlayerSpeed = PlayerPrefs.GetFloat("HardLevel");
         Base.Speed = PlayerPrefs.GetFloat("HardLevel");
+        _audio = GetComponent<AudioSource>();
     }
 
     /// <summary>
@@ -33,7 +35,7 @@ public class UIMaster : MonoBehaviour
     /// </summary>
     public void StartAndPause()
     {
-        if (Base.Death == false && _after._pause == false)
+        if (Base.Death == false && _after._pause == false && Base.Training == false)
         {
             if (_go == true)
             {
@@ -55,5 +57,13 @@ public class UIMaster : MonoBehaviour
         {
             _anima.SetBool("Pause", true);
         }
+    }
+
+    /// <summary>
+    /// Реализование звука клика
+    /// </summary>
+    public void Click()
+    {
+        _audio.Play();
     }
 }

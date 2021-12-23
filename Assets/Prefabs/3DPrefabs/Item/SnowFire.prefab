@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8791182892157854259}
   - component: {fileID: 1175438002023387930}
   - component: {fileID: 261292783699978965}
+  - component: {fileID: 6083428270493535197}
   m_Layer: 0
   m_Name: SnowFire
   m_TagString: FireBall
@@ -90,9 +91,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbb8c0f0f4810034da647ded09cb348e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _step: 3
-  _mesh: {fileID: 3081358103803406534}
+  _obj: {fileID: 5358462610951749233}
+  _mats:
+  - {fileID: 2100000, guid: 6814eadb08a0f6546bb55e91c2dd0678, type: 2}
+  - {fileID: 2100000, guid: c25aaac43ec546e4db8d8a2056d440e0, type: 2}
+  - {fileID: 2100000, guid: de68040cc8a57b74b92f48d86552c36a, type: 2}
+  - {fileID: 2100000, guid: f8f8d74223f8aca4db9e41f1067a3f6a, type: 2}
+  - {fileID: 2100000, guid: 188c25c2381fd594fa483cbf08a39c9b, type: 2}
+  - {fileID: 2100000, guid: 5a4e6876c0d90d94694a7a7ceb9084f6, type: 2}
   go: 0
+--- !u!95 &6083428270493535197
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5088191044804355540}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c7633756e2b741f418be8cbb5aed663c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1734435807906290713
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -122,7 +148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 105265949218974730, guid: 44a3f33bfebdc3b4eb64deeaf7908fae, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.017365
+      value: 3.08
       objectReference: {fileID: 0}
     - target: {fileID: 105265949218974730, guid: 44a3f33bfebdc3b4eb64deeaf7908fae, type: 3}
       propertyPath: m_LocalRotation.w
@@ -163,13 +189,13 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 1675943498370514451, guid: 44a3f33bfebdc3b4eb64deeaf7908fae, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 44a3f33bfebdc3b4eb64deeaf7908fae, type: 3}
+--- !u!1 &5358462610951749233 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5930362711430226536, guid: 44a3f33bfebdc3b4eb64deeaf7908fae, type: 3}
+  m_PrefabInstance: {fileID: 1734435807906290713}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1829603837835276307 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 105265949218974730, guid: 44a3f33bfebdc3b4eb64deeaf7908fae, type: 3}
-  m_PrefabInstance: {fileID: 1734435807906290713}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &3081358103803406534 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 3662230184838427871, guid: 44a3f33bfebdc3b4eb64deeaf7908fae, type: 3}
   m_PrefabInstance: {fileID: 1734435807906290713}
   m_PrefabAsset: {fileID: 0}

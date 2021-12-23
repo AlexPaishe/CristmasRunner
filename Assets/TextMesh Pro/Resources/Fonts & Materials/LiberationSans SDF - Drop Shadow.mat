@@ -28,9 +28,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FaceTex:
-        m_Texture: {fileID: 2800000, guid: 881fd5767fd027348a701ffcbafb13d4, type: 3}
+        m_Texture: {fileID: 2800000, guid: 50b2dd5711b1fc546a56c87c1ec09b28, type: 3}
         m_Scale: {x: 0.1, y: 0.1}
-        m_Offset: {x: 0, y: 0}
+        m_Offset: {x: 0.5, y: 0.5}
     - _MainTex:
         m_Texture: {fileID: 28684132378477856, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
         m_Scale: {x: 1, y: 1}
@@ -53,7 +53,7 @@ Material:
     - _CullMode: 0
     - _Diffuse: 0.5
     - _DiffusePower: 1
-    - _FaceDilate: 0.1
+    - _FaceDilate: 0.3
     - _FaceUVSpeedX: 0
     - _FaceUVSpeedY: 0
     - _GlowInner: 0.425
@@ -67,12 +67,12 @@ Material:
     - _OutlineSoftness: 0.08
     - _OutlineUVSpeedX: 1
     - _OutlineUVSpeedY: 0
-    - _OutlineWidth: 0.2
+    - _OutlineWidth: 0.25
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
     - _ScaleRatioA: 0.9
-    - _ScaleRatioB: 0.64125
-    - _ScaleRatioC: 0.64125
+    - _ScaleRatioB: 0.46124998
+    - _ScaleRatioC: 0.46124998
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0

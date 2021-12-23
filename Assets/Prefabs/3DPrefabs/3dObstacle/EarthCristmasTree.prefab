@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3583972951230522468}
   - component: {fileID: 1034340643530112584}
   - component: {fileID: 4809888660822279405}
+  - component: {fileID: 8611169088044444987}
   m_Layer: 0
   m_Name: CristmasTree
   m_TagString: Damage
@@ -75,9 +76,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbb8c0f0f4810034da647ded09cb348e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _step: 1
-  _mesh: {fileID: 8669575934478103023}
+  _obj: {fileID: 5400123674336625855}
+  _mats:
+  - {fileID: 2100000, guid: e7d0d992d1ae91b49bba0e4a6b73cf22, type: 2}
+  - {fileID: 2100000, guid: a9f10e195669fd749ae611173b978f4a, type: 2}
+  - {fileID: 2100000, guid: 90033f38bddb9294d9fa2cd9b59cb0f2, type: 2}
+  - {fileID: 2100000, guid: 4b4c8210606f2f44da68b718e32806e4, type: 2}
+  - {fileID: 2100000, guid: 248682e6ab7428b4e84224ee56b43dca, type: 2}
+  - {fileID: 2100000, guid: 87eb099612f45c94ab1c608962c91e4a, type: 2}
   go: 0
+--- !u!95 &8611169088044444987
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 294826766762013054}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a19cef20150ea5948b71d50cd6b43fd2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &306397344637079774
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,13 +276,13 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 7632765605147836388, guid: 9e65471edf716194ea30ebfe922c5b39, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9e65471edf716194ea30ebfe922c5b39, type: 3}
+--- !u!1 &5400123674336625855 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5141213873747984909, guid: 9e65471edf716194ea30ebfe922c5b39, type: 3}
+  m_PrefabInstance: {fileID: 984130086775817906}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5995172355839622555 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6817170450544851753, guid: 9e65471edf716194ea30ebfe922c5b39, type: 3}
-  m_PrefabInstance: {fileID: 984130086775817906}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &8669575934478103023 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 8500773512839673693, guid: 9e65471edf716194ea30ebfe922c5b39, type: 3}
   m_PrefabInstance: {fileID: 984130086775817906}
   m_PrefabAsset: {fileID: 0}

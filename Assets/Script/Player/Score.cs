@@ -20,27 +20,34 @@ public class Score : MonoBehaviour
     private void Awake()
     {
         _player = FindObjectOfType<PlayerMovement>();
-        _record = PlayerPrefs.GetFloat("Record");
+        if (Base.Hard == false)
+        {
+            _record = PlayerPrefs.GetFloat("Record");
+        }
+        else
+        {
+            _record = PlayerPrefs.GetFloat("HardRecord");
+        }
 
         if (_record / 1000 >= 1)
         {
-            _scoreDeath.text = $"You Record X {_record}";
-            _scoreDeathMesh.text = $"You Record X {_record}";
+            _scoreDeath.text = $"Your Record X {_record}";
+            _scoreDeathMesh.text = $"Your Record X {_record}";
         }
         else if (_record / 100 >= 1)
         {
-            _scoreDeath.text = $"You Record X 0{_record}";
-            _scoreDeathMesh.text = $"You Record X 0{_record}";
+            _scoreDeath.text = $"Your Record X 0{_record}";
+            _scoreDeathMesh.text = $"Your Record X 0{_record}";
         }
         else if (_record / 10 >= 1)
         {
-            _scoreDeath.text = $"You Record X 00{_record}";
-            _scoreDeathMesh.text = $"You Record X 00{_record}";
+            _scoreDeath.text = $"Your Record X 00{_record}";
+            _scoreDeathMesh.text = $"Your Record X 00{_record}";
         }
         else if (_record / 10 >= 0)
         {
-            _scoreDeath.text = $"You Record X 000{_record}";
-            _scoreDeathMesh.text = $"You Record X 000{_record}";
+            _scoreDeath.text = $"Your Record X 000{_record}";
+            _scoreDeathMesh.text = $"Your Record X 000{_record}";
         }
     }
 
@@ -78,7 +85,15 @@ public class Score : MonoBehaviour
         {
             if(_giftCount > _record)
             {
-                PlayerPrefs.SetFloat("Record", _giftCount);
+                if (Base.Hard == false)
+                {
+                    PlayerPrefs.SetFloat("Record", _giftCount);
+                }
+                else
+                {
+                    PlayerPrefs.SetFloat("HardRecord", _giftCount);
+                }
+
                 if (_giftCount / 1000 >= 1)
                 {
                     _scoreDeath.text = $"New Record X {_giftCount}";
@@ -104,23 +119,23 @@ public class Score : MonoBehaviour
             {
                 if (_giftCount / 1000 >= 1)
                 {
-                    _scoreDeath.text = $"You Score X {_giftCount}";
-                    _scoreDeathMesh.text = $"You Score X {_giftCount}";
+                    _scoreDeath.text = $"Your Score X {_giftCount}";
+                    _scoreDeathMesh.text = $"Your Score X {_giftCount}";
                 }
                 else if (_giftCount / 100 >= 1)
                 {
-                    _scoreDeath.text = $"You Score X 0{_giftCount}";
-                    _scoreDeathMesh.text = $"You Score X 0{_giftCount}";
+                    _scoreDeath.text = $"Your Score X 0{_giftCount}";
+                    _scoreDeathMesh.text = $"Your Score X 0{_giftCount}";
                 }
                 else if (_giftCount / 10 >= 1)
                 {
-                    _scoreDeath.text = $"You Score X 00{_giftCount}";
-                    _scoreDeathMesh.text = $"You Score X 00{_giftCount}";
+                    _scoreDeath.text = $"Your Score X 00{_giftCount}";
+                    _scoreDeathMesh.text = $"Your Score X 00{_giftCount}";
                 }
                 else if (_giftCount / 10 >= 0)
                 {
-                    _scoreDeath.text = $"You Score X 000{_giftCount}";
-                    _scoreDeathMesh.text = $"You Score X 000{_giftCount}";
+                    _scoreDeath.text = $"Your Score X 000{_giftCount}";
+                    _scoreDeathMesh.text = $"Your Score X 000{_giftCount}";
                 }
             }
         }

@@ -45,7 +45,7 @@ public class Training : MonoBehaviour
     private void Awake()
     {
         _training = PlayerPrefs.GetInt("Training");
-        if(_training == 1)
+        if(_training == 0)
         {
             Base.Training = true;
         }

@@ -48,6 +48,7 @@ public class ActionWindow : MonoBehaviour
             _currentTimer /= _multiply;
             _stepFrame = (1 / _currentTimer);
             _frame.fillAmount = 1;
+            NextStep();
         }
 
         if (collision.CompareTag("Dynamic") && _static == false)
@@ -79,6 +80,7 @@ public class ActionWindow : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(_currentLevel);
         if (Base.Death == false)
         {
             if (Base.Pause == false)
@@ -111,7 +113,6 @@ public class ActionWindow : MonoBehaviour
 
         if (_currentTimer < 0)
         {
-            NextStep();
             Base.Speed = _multiply;
             _cam.cullingMask = _layers[1];
             Base.Go = false;
@@ -163,10 +164,18 @@ public class ActionWindow : MonoBehaviour
     public bool Next()
     {
         bool Yes = false;
-        if(_currentLevel == 0)
+        if(_currentLevel == 1)
         {
             Yes = true;
         }
         return Yes;
+    }
+
+    /// <summary>
+    /// Реализация первого шага после тренировки
+    /// </summary>
+    public void Step()
+    {
+        _currentLevel = 1;
     }
 }
