@@ -3601,14 +3601,14 @@ Camera:
   m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 81
+    m_Bits: 593
   m_RenderingPath: 1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
-  m_AllowDynamicResolution: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -8912,7 +8912,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hunt for Krumpus
+  m_text: Krumpus Chase
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -10198,10 +10198,6 @@ PrefabInstance:
     - target: {fileID: 2101900860343327611, guid: aa66af128a3fafd4c8d82fd4725224a5, type: 3}
       propertyPath: m_Name
       value: Crossfade
-      objectReference: {fileID: 0}
-    - target: {fileID: 2101900860343327611, guid: aa66af128a3fafd4c8d82fd4725224a5, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa66af128a3fafd4c8d82fd4725224a5, type: 3}

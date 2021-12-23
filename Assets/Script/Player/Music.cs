@@ -20,10 +20,11 @@ public class Music : MonoBehaviour
         _beginMusic = Base.PlayerSpeed;
         _action = FindObjectOfType<ActionWindow>();
         _maxLevel = _musicStep.Length;
-        if(Base.Training == true)
-        {
-            _pauseMusic.Play();
-        }
+        //if(Base.Training == true)
+        //{
+        //    _pauseMusic.Play();
+        //}
+        _pauseMusic.Play();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -34,6 +35,7 @@ public class Music : MonoBehaviour
             {
                 _step = true;
                 _action.Step();
+                _pauseMusic.Pause();
             }
 
             if (_action.Next() == true)

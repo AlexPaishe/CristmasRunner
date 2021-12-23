@@ -80,7 +80,6 @@ public class ActionWindow : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(_currentLevel);
         if (Base.Death == false)
         {
             if (Base.Pause == false)

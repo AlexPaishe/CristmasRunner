@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIMaster : MonoBehaviour
 {
     [SerializeField] private Animator _anima;
+    [SerializeField] private Sprite[] _startAndPause;
+    [SerializeField] private Image _buttonPause;
     private bool _go = true;
+    private bool _begin = true;
     private Score _score;
     private AfterPause _after;
     private AudioSource _audio;
@@ -37,16 +39,22 @@ public class UIMaster : MonoBehaviour
     {
         if (Base.Death == false && _after._pause == false && Base.Training == false)
         {
-            if (_go == true)
+            if (_begin == false)
             {
-                _go = false;
-                Base.Pause = true;
-                _anima.SetBool("Pause", true);
-            }
-            else
-            {
-                _go = true;
-                _anima.SetBool("Pause", false);
+                if (_go == true)
+                {
+                    _go = false;
+                    Base.Pause = true;
+                    _anima.SetBool("Pause", true);
+                    _buttonPause.sprite = _startAndPause[0];
+
+                }
+                else
+                {
+                    _go = true;
+                    _anima.SetBool("Pause", false);
+                    _buttonPause.sprite = _startAndPause[1];
+                }
             }
         }
     }
@@ -56,6 +64,11 @@ public class UIMaster : MonoBehaviour
         if(_score.death == true)
         {
             _anima.SetBool("Pause", true);
+        }
+
+        if(Base.Go == true && _begin == true)
+        {
+            _begin = false;
         }
     }
 

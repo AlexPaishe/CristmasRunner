@@ -5,6 +5,7 @@ using UnityEngine;
 public class StopJump : MonoBehaviour
 {
     private Animator _anima;
+    private bool _go = false;
 
     private void Awake()
     {
@@ -18,7 +19,11 @@ public class StopJump : MonoBehaviour
     {
         if (Base.Game == true)
         {
-            _anima.SetBool("Start", false);
+            if (Base.Speed > 0 && _go == false)
+            {
+                _anima.SetBool("Start", false);
+                _go = true;
+            }
             Base.Action = false;
         }
     }

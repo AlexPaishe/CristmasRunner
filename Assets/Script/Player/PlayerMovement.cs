@@ -8,6 +8,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Vector3[] _point;
     [SerializeField] private float _speed;
     [SerializeField] private Animator[] _anima;
+    [SerializeField] private float _swipeNumber;
+    [SerializeField] private float _maxDistance;
+    [SerializeField] private LayerMask _layer;
 
     public int currentPosition = 1;
     private float _currentSpeed;
@@ -15,7 +18,6 @@ public class PlayerMovement : MonoBehaviour
     private bool _death = false;
     private bool _pause = false;
 
-    private float _currentHeight = ScreenMobile.height;
     private float _y1;
     private float _y2;
     private bool _actionMove = false;
@@ -224,57 +226,60 @@ public class PlayerMovement : MonoBehaviour
         if(Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
-            if(touch.position.y < _currentHeight/3 && touch.phase == TouchPhase.Began && _movement == true)
+            RaycastHit hit;
+            if(Physics.Raycast(Camera.main.ScreenPointToRay(touch.position), out hit, _maxDistance, _layer) && _movement == true)
             {
-                _currentSpeed = _speed * Base.PlayerSpeed;
-                currentPosition--;
-                if (currentPosition < 0)
+                if(hit.transform.position.z == _point[currentPosition].z + 2)
                 {
-                    currentPosition = 0;
+                    BeginCrouch();
+                    if (Base.Training == true)
+                    {
+                        Base.Go = false;
+                    }
+                    Base.Crouch = true;
+                    _anima[0].speed = _currentSpeed;
+                    _anima[1].speed = _currentSpeed;
+                    Base.Action = true;
+                    _movement = false;
                 }
-                if (Base.Training == true)
+                else if(hit.transform.position.z == _point[currentPosition].z - 8)
                 {
-                    Base.Go = false;
+                    _currentSpeed = _speed * Base.PlayerSpeed;
+                    currentPosition--;
+                    if (currentPosition < 0)
+                    {
+                        currentPosition = 0;
+                    }
+                    if (Base.Training == true)
+                    {
+                        Base.Go = false;
+                    }
+                    Base.Crouch = false;
+                    _anima[0].speed = _currentSpeed;
+                    _anima[1].speed = _currentSpeed;
+                    _anima[0].SetTrigger("MiniJump");
+                    Base.Action = true;
+                    _movement = false;
                 }
-                Base.Crouch = false;
-                _anima[0].speed = _currentSpeed;
-                _anima[1].speed = _currentSpeed;
-                _anima[0].SetTrigger("MiniJump");
-                Base.Action = true;
-                _movement = false;
-            }
-            else if(touch.position.y > _currentHeight/3 && touch.position.y < (_currentHeight/3)*2 
-                && touch.phase == TouchPhase.Began && _movement == true)
-            {
-                BeginCrouch();
-                if (Base.Training == true)
+                else if(hit.transform.position.z == _point[currentPosition].z + 12)
                 {
-                    Base.Go = false;
+                    _currentSpeed = _speed * Base.PlayerSpeed;
+                    currentPosition++;
+                    if (currentPosition > 2)
+                    {
+                        currentPosition = 2;
+                    }
+                    if (Base.Training == true)
+                    {
+                        Base.Go = false;
+                    }
+                    Base.Crouch = false;
+                    _anima[0].speed = _currentSpeed;
+                    _anima[1].speed = _currentSpeed;
+                    _anima[0].SetTrigger("MiniJump");
+                    Base.Action = true;
+                    _movement = false;
                 }
-                Base.Crouch = true;
-                _anima[0].speed = _currentSpeed;
-                _anima[1].speed = _currentSpeed;
-                _anima[0].SetTrigger("MiniJump");
-                Base.Action = true;
-                _movement = false;
-            }
-            else if(touch.position.y > (_currentHeight / 3) * 2 && touch.phase == TouchPhase.Began && _movement == true)
-            {
-                _currentSpeed = _speed * Base.PlayerSpeed;
-                currentPosition++;
-                if (currentPosition > 2)
-                {
-                    currentPosition = 2;
-                }
-                if (Base.Training == true)
-                {
-                    Base.Go = false;
-                }
-                Base.Crouch = false;
-                _anima[0].speed = _currentSpeed;
-                _anima[1].speed = _currentSpeed;
-                Base.Action = true;
-                _movement = false;
             }
         }
     }
@@ -294,8 +299,12 @@ public class PlayerMovement : MonoBehaviour
             if(Input.GetTouch(0).phase == TouchPhase.Ended && _movement == true)
             {
                 _y2 = Input.GetTouch(0).position.y;
+                if(_y1 < 0)
+                {
+                    _y1 = _y2;
+                }
 
-                if(_y1 > _y2)
+                if(_y1 > _y2 && _y1 - _y2 > _swipeNumber)
                 {
                     _currentSpeed = _speed * Base.PlayerSpeed;
                     currentPosition--;
@@ -314,7 +323,7 @@ public class PlayerMovement : MonoBehaviour
                     Base.Action = true;
                     _movement = false;
                 }
-                else if(_y1 < _y2)
+                else if(_y1 < _y2 && _y2 - _y1 > _swipeNumber)
                 {
                     _currentSpeed = _speed * Base.PlayerSpeed;
                     currentPosition++;
@@ -350,8 +359,8 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            _y1 = 0;
-            _y2 = 0;
+            _y1 = -1;
+            _y2 = -1;
         }
     }
 }
