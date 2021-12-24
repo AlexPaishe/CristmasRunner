@@ -55,7 +55,15 @@ public class Score : MonoBehaviour
     {
         if(collision.CompareTag("Gift"))
         {
-            _giftCount++;
+            if (Base.Gold == false)
+            {
+                _giftCount++;
+            }
+            else
+            {
+                _giftCount += 2;
+            }
+
             string numer = "";
             if(_giftCount /1000 >= 1)
             {
@@ -75,7 +83,41 @@ public class Score : MonoBehaviour
             }
             _scoreText.text = numer;
             _scoreTextMesh.text = numer;
-            collision.GetComponent<Desolve>().go = true;
+            if (collision.GetComponent<Desolve>() != null)
+            {
+                collision.GetComponent<Desolve>().go = true;
+            }
+            else
+            {
+                collision.GetComponent<Gift>().go = true;
+                collision.GetComponent<FireBall>().Stop();
+            }
+        }
+        else if(collision.CompareTag("Gold"))
+        {
+            Base.Gold = true;
+            _giftCount += 2;
+            string numer = "";
+            if (_giftCount / 1000 >= 1)
+            {
+                numer = $"X{_giftCount}";
+            }
+            else if (_giftCount / 100 >= 1)
+            {
+                numer = $"X0{_giftCount}";
+            }
+            else if (_giftCount / 10 >= 1)
+            {
+                numer = $"X00{_giftCount}";
+            }
+            else if (_giftCount / 10 > 0)
+            {
+                numer = $"X000{_giftCount}";
+            }
+            _scoreText.text = numer;
+            _scoreTextMesh.text = numer;
+            collision.GetComponent<Gift>().go = true;
+            collision.GetComponent<FireBall>().Stop();
         }
     }
 

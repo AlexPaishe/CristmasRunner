@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657683, g: 0.49641192, b: 0.5748182, a: 1}
+  m_IndirectSpecularColor: {r: 0.43975493, g: 0.4881794, b: 0.5683985, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -575,20 +575,11 @@ MonoBehaviour:
   - {fileID: 988469310}
   - {fileID: 66910670}
   _rules:
-  - "\u041F\u0440\u0438 \u043D\u0430\u0436\u0430\u0442\u0438\u0438 \u043A\u043B\u0430\u0432\u0438\u0448\u0438
-    W \u0421\u0430\u043D\u0442\u0430 \u043F\u0435\u0440\u0435\u0445\u043E\u0434\u0438\u0442
-    \u043D\u0430 \u0434\u043E\u0440\u043E\u0436\u043A\u0443 \u0432\u044B\u0448\u0435. 
-    \u041F\u0440\u0438 \u043D\u0430\u0436\u0430\u0442\u0438\u0438 \u043A\u043B\u0430\u0432\u0438\u0448\u0438
-    S \u0421\u0430\u043D\u0442\u0430 \u043F\u0435\u0440\u0435\u0445\u043E\u0434\u0438\u0442
-    \u043D\u0430 \u0434\u043E\u0440\u043E\u0436\u043A\u0443 \u043D\u0438\u0436\u0435."
-  - "\u0421\u043D\u0435\u0433\u043E\u0432\u0438\u043A\u043E\u0432 \u043C\u043E\u0436\u043D\u043E
-    \u043F\u0435\u0440\u0435\u043F\u0440\u044B\u0433\u043D\u0443\u0442\u044C, \u0435\u0441\u043B\u0438
-    \u043D\u0430\u0436\u0430\u0442\u044C \u043A\u043B\u0430\u0432\u0438\u0448\u0443
-    A.  \u041D\u043E \u0421\u0430\u043D\u0442\u0430 \u0432 \u0442\u0430\u043A\u043E\u043C
-    \u043F\u0440\u044B\u0436\u043A\u0435 \u043D\u0435 \u043C\u043E\u0436\u0435\u0442
-    \u0441\u0442\u0440\u0435\u043B\u044F\u0442\u044C \u0441\u043D\u0435\u0436\u043A\u0430\u043C\u0438."
-  - 'Tap the top or the bottom lane to change it. You can only act to the rhytm when
-    Santa is on the ground. '
+  - Press W or S to change line. You can only act to the rhytm when Santa is on the
+    ground.
+  - Press A to jump higher. Santa can't throw a snowball in a high jump.
+  - Tap the adjacent lane to change it. You can only act to the rhytm when Santa
+    is on the ground.
   - 'Tap current lane to jump higher. Santa can''t throw a snowball in a high jump. '
   - Swipe up or down to change lanes. You can only act to the rhytm when Santa is
     on the ground.
@@ -608,22 +599,57 @@ MonoBehaviour:
   _music: {fileID: 684185881}
   _pauseMusic: {fileID: 1340834837}
   _musicStep:
-  - {fileID: 8300000, guid: 4db350a8b75eadd4d8717f1f5f46cc03, type: 3}
-  - {fileID: 8300000, guid: ea2143f01ece9774782842d89534a18d, type: 3}
-  - {fileID: 8300000, guid: 5e4d3cb8e9531264097e1aa08df2bcb4, type: 3}
-  - {fileID: 8300000, guid: b6d0be87521e3d74c8cb72a61125b89e, type: 3}
-  - {fileID: 8300000, guid: 09ea8b88f15903c47a2b3f4998f9b908, type: 3}
-  - {fileID: 8300000, guid: 6f15811139a750945b956d86df960aad, type: 3}
-  - {fileID: 8300000, guid: 38e7d6a4b9e32d74cb58d4df9a5fffbc, type: 3}
-  - {fileID: 8300000, guid: 0cf920e2879fbd14dad5ae769f017db9, type: 3}
-  - {fileID: 8300000, guid: 58dd7931768f6e644aa9a1ed1b48da83, type: 3}
-  - {fileID: 8300000, guid: 26048e982e9f2024a83918d16e310953, type: 3}
-  - {fileID: 8300000, guid: 5b7761b71dd061344bc9fdec9761776c, type: 3}
-  - {fileID: 8300000, guid: d44da463510631942b5bbd87af909340, type: 3}
-  - {fileID: 8300000, guid: 526e22bad8a3b384c8512dc30694a34e, type: 3}
-  - {fileID: 8300000, guid: 5545bec1b24cbfc44b4ab93711541074, type: 3}
-  - {fileID: 8300000, guid: 069c29885dac72746a77abfd864e020e, type: 3}
-  - {fileID: 8300000, guid: 9ee09c0ae8ca0ad43a57be259b57cd3f, type: 3}
+  - {fileID: 8300000, guid: 3665bf34131adb549918f46115cbdcd4, type: 3}
+  - {fileID: 8300000, guid: 7248c25735b7483409035825ea6b045d, type: 3}
+  - {fileID: 8300000, guid: 43743fa0fb0a7874e8a69f4e7870f0c1, type: 3}
+  - {fileID: 8300000, guid: af2b0319958c82b4b97ca7ad1baeb2e9, type: 3}
+  - {fileID: 8300000, guid: 4a59fce7c893738488c8d77f489ce1f6, type: 3}
+  - {fileID: 8300000, guid: 0fceb1097eb9c354f8e2839328de9a4c, type: 3}
+  - {fileID: 8300000, guid: 7181c656c5f36154db6d424a5c2db5a7, type: 3}
+  - {fileID: 8300000, guid: 61bc5c3a72b8b4e4c83396930240dbb2, type: 3}
+  - {fileID: 8300000, guid: 72ce6e452b93e844189659959e19ece3, type: 3}
+  - {fileID: 8300000, guid: 2f667cd02f42cae4b8a384eed59fc278, type: 3}
+  - {fileID: 8300000, guid: 71f674f618cfef3488649fa57b21b5eb, type: 3}
+  - {fileID: 8300000, guid: 6ed4b6fd72fc964428289ca6aecf2dd3, type: 3}
+  - {fileID: 8300000, guid: 000adf4314fb4fc4db9c4d443a21f89e, type: 3}
+  - {fileID: 8300000, guid: a81dd86cef71de4448e56203c15feeb6, type: 3}
+  - {fileID: 8300000, guid: 531f7034062c18b498e2fc36258c82ff, type: 3}
+  - {fileID: 8300000, guid: 876db48c9196e9c41834705bacbaffc4, type: 3}
+  - {fileID: 8300000, guid: 6dc9076620b575c4495bb23dced8fbb4, type: 3}
+  - {fileID: 8300000, guid: 579b91823384ed546bbee3e7c5b5bc13, type: 3}
+  - {fileID: 8300000, guid: 15e1d27441daff843a65775f58668842, type: 3}
+  - {fileID: 8300000, guid: 201df33885bf1b744b62a800e4c0ae92, type: 3}
+  - {fileID: 8300000, guid: babb40f73920daa46ad30f75bb0f0398, type: 3}
+  - {fileID: 8300000, guid: 19274f9307fce874882cfeb175172ac4, type: 3}
+  - {fileID: 8300000, guid: 80531daff4b1f0d4b884a90cecdcdf12, type: 3}
+  - {fileID: 8300000, guid: 8ac43bb277944fc4a84ceb0379b27376, type: 3}
+  - {fileID: 8300000, guid: 88881df098b13734c847e611b6c90e4d, type: 3}
+  - {fileID: 8300000, guid: e51199468cfec5343b6523b31eeb2c2a, type: 3}
+  - {fileID: 8300000, guid: 88d5f0d89dad3ad4ba7ab51979d525c0, type: 3}
+  - {fileID: 8300000, guid: 06ea6836bf356054ca98cba85127a192, type: 3}
+  - {fileID: 8300000, guid: 99f6f14281640784d9fbf36b4af71f83, type: 3}
+  - {fileID: 8300000, guid: 5bf33facf8641834fbb9c4125bdc1c86, type: 3}
+  - {fileID: 8300000, guid: 8f4d3b93593982c41a4d8c4e9cfe6b8a, type: 3}
+  - {fileID: 8300000, guid: 5bf6993cf23ce8a4fa9e420c082c1132, type: 3}
+  - {fileID: 8300000, guid: 429dccca11942e94b9c109477e692f93, type: 3}
+  - {fileID: 8300000, guid: 0f963feef9cca8440b5bb007f5718a17, type: 3}
+  - {fileID: 8300000, guid: 34b5af11d1f9a4a4cb5967d04a6615a4, type: 3}
+  - {fileID: 8300000, guid: 0b04be4e4bb98c44eaa8b010599451b2, type: 3}
+  - {fileID: 8300000, guid: 8e0c215808c7a074886af8c39974cb06, type: 3}
+  - {fileID: 8300000, guid: 3954e3c639a360541add9389f10b8f25, type: 3}
+  - {fileID: 8300000, guid: 80b6754853076c3488532d7483998cdb, type: 3}
+  - {fileID: 8300000, guid: 7ec3f6e660cb3274485c45d78095ed4b, type: 3}
+  - {fileID: 8300000, guid: 740a0ceb5f928734ba3e1caf0dfd1fc3, type: 3}
+  - {fileID: 8300000, guid: 41270e52ef2be7643ac54898acf6e453, type: 3}
+  - {fileID: 8300000, guid: 7a86a9a705a7e924ebd72adcef88c395, type: 3}
+  - {fileID: 8300000, guid: 93916aa3329bffc42863877ae1721d2c, type: 3}
+  - {fileID: 8300000, guid: 7d425898c58028b4090370e35cbd678c, type: 3}
+  - {fileID: 8300000, guid: 5c94b7eb25f31c94c8167c1188dd7d9e, type: 3}
+  - {fileID: 8300000, guid: 047a0f245bc1e924f9467005c84e38e5, type: 3}
+  - {fileID: 8300000, guid: a696c5b2c7a547d43857d6e19c6c4f9f, type: 3}
+  - {fileID: 8300000, guid: 5a2ceeecb076108458f633760d0c85c4, type: 3}
+  - {fileID: 8300000, guid: 02e404501c0ed8b41bdee61d55fc05c9, type: 3}
+  - {fileID: 8300000, guid: 3a7ef1894875d864a95b8f11fcf30b03, type: 3}
   _speed: 1
 --- !u!1 &157155784
 GameObject:
@@ -1104,6 +1130,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f96b748af3ef1704a870297fba71f912, type: 3}
   - {fileID: 21300000, guid: a1338e15988ecb848985d1d37fd8183f, type: 3}
   _buttonPause: {fileID: 684267001}
+  _animaGift: {fileID: 1924750479}
 --- !u!82 &240231475
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2336,7 +2363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _light: {fileID: 1750369161}
   _speed: 0.5
-  _night: 150
+  _night: 130
 --- !u!1 &684266998
 GameObject:
   m_ObjectHideFlags: 0
@@ -5473,13 +5500,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1750369161}
-  m_LocalRotation: {x: 0, y: 0.42261827, z: -0.9063079, w: 0}
+  m_LocalRotation: {x: 0, y: 0.57357645, z: -0.81915206, w: 0}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 130, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 110, y: 180, z: 0}
 --- !u!1 &1787951408
 GameObject:
   m_ObjectHideFlags: 0
@@ -6019,6 +6046,7 @@ GameObject:
   - component: {fileID: 1924750476}
   - component: {fileID: 1924750478}
   - component: {fileID: 1924750477}
+  - component: {fileID: 1924750479}
   m_Layer: 5
   m_Name: Present
   m_TagString: Untagged
@@ -6083,6 +6111,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1924750475}
   m_CullTransparentMesh: 1
+--- !u!95 &1924750479
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924750475}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 765e92847ab93934a8a81fe5a5faef5d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1938828683
 GameObject:
   m_ObjectHideFlags: 0
@@ -6484,6 +6531,7 @@ MonoBehaviour:
   _present:
   - {fileID: 3374120292352223570, guid: c9a2a0356210b784896d44f7969eafb0, type: 3}
   - {fileID: 3374120292352223570, guid: 11b512fb8408d9241980cf35fec7ebf3, type: 3}
+  - {fileID: 3374120292352223570, guid: 718afbe2bb99ee548825846390496c97, type: 3}
   _point: {fileID: 729684228}
 --- !u!65 &2055748256
 BoxCollider:

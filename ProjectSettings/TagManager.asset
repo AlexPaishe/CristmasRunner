@@ -11,6 +11,7 @@ TagManager:
   - Training
   - FireBall
   - Gift
+  - Gold
   layers:
   - Default
   - TransparentFX

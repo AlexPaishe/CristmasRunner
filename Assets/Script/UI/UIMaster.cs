@@ -8,7 +8,9 @@ public class UIMaster : MonoBehaviour
     [SerializeField] private Animator _anima;
     [SerializeField] private Sprite[] _startAndPause;
     [SerializeField] private Image _buttonPause;
+    [SerializeField] private Animator _animaGift;
     private bool _go = true;
+    private bool _gold = false;
     private bool _begin = true;
     private Score _score;
     private AfterPause _after;
@@ -29,6 +31,7 @@ public class UIMaster : MonoBehaviour
         Base.Game = true;
         Base.PlayerSpeed = PlayerPrefs.GetFloat("HardLevel");
         Base.Speed = PlayerPrefs.GetFloat("HardLevel");
+        Base.Gold = false;
         _audio = GetComponent<AudioSource>();
     }
 
@@ -69,6 +72,17 @@ public class UIMaster : MonoBehaviour
         if(Base.Go == true && _begin == true)
         {
             _begin = false;
+        }
+
+        if(Base.Gold == true && _gold == false)
+        {
+            _gold = true;
+            _animaGift.SetTrigger("Gold");
+        }
+        else if (Base.Gold == false && _gold == true)
+        {
+            _gold = false;
+            _animaGift.SetTrigger("Classic");
         }
     }
 

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657683, g: 0.49641192, b: 0.5748182, a: 1}
+  m_IndirectSpecularColor: {r: 0.43975493, g: 0.4881794, b: 0.5683985, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1507,14 +1507,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Direction Alena Goncharenko
-
-    GameDesigner Iliya Ulibashev
-
-    2D
-    Artist Yulia Demina
-
-    Unity Developer Alexandr Pashkovskiy'
+  m_text: "Direction Helen\r\n Goncharenko\nGameDesigner Ilya Ulybyshev\n2D Artist
+    Julia Demina\nUnity Developer Alexandr Pashkovskiy"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3781,6 +3775,7 @@ MonoBehaviour:
   _present:
   - {fileID: 3374120292352223570, guid: c9a2a0356210b784896d44f7969eafb0, type: 3}
   - {fileID: 3374120292352223570, guid: 11b512fb8408d9241980cf35fec7ebf3, type: 3}
+  - {fileID: 3374120292352223570, guid: 718afbe2bb99ee548825846390496c97, type: 3}
   _point: {fileID: 480729455}
 --- !u!1 &769582346
 GameObject:
@@ -5334,13 +5329,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1155318437}
-  m_LocalRotation: {x: 0, y: 0.42261827, z: -0.9063079, w: 0}
+  m_LocalRotation: {x: 0, y: 0.57357645, z: -0.81915206, w: 0}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 130, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 110, y: 180, z: 0}
 --- !u!114 &1155318440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8912,7 +8907,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Krumpus Chase
+  m_text: Krampus Chase
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -10198,6 +10193,10 @@ PrefabInstance:
     - target: {fileID: 2101900860343327611, guid: aa66af128a3fafd4c8d82fd4725224a5, type: 3}
       propertyPath: m_Name
       value: Crossfade
+      objectReference: {fileID: 0}
+    - target: {fileID: 2101900860343327611, guid: aa66af128a3fafd4c8d82fd4725224a5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa66af128a3fafd4c8d82fd4725224a5, type: 3}

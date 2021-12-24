@@ -34,10 +34,10 @@ public class SunAndNight : MonoBehaviour
         {
             _currentStep -= _speed * Base.PlayerSpeed;
             _light.transform.eulerAngles = new Vector3(_currentStep, 180, 0);
-            if (_currentStep < 130)
+            if (_currentStep < 110)
             {
                 _go = false;
-                _currentStep = 130;
+                _currentStep = 110;
             }
         }
     }

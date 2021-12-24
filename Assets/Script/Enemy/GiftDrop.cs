@@ -14,9 +14,13 @@ public class GiftDrop : MonoBehaviour
             int rand = Random.Range(0, 101);
             if (Base.Hard == false)
             {
-                if (rand > 10)
+                if (rand > 10 && rand < 95)
                 {
                     rand = 0;
+                }
+                else if(rand > 95)
+                {
+                    rand = 2;
                 }
                 else
                 {
@@ -25,7 +29,14 @@ public class GiftDrop : MonoBehaviour
             }
             else
             {
-                rand = 0;
+                if (rand < 95)
+                {
+                    rand = 0;
+                }
+                else
+                {
+                    rand = 2;
+                }
             }
             Instantiate(_present[rand], _point.position, Quaternion.identity);
             if(collision.GetComponent<FireBall>().fire == true)
