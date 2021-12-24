@@ -77,8 +77,8 @@ public class Training : MonoBehaviour
             {
                 _rulesText[0].text = _rules[4];
                 _rulesText[1].text = _rules[5];
-                _rulesTextMesh[0].text = _rules[2];
-                _rulesTextMesh[1].text = _rules[3];
+                _rulesTextMesh[0].text = _rules[4];
+                _rulesTextMesh[1].text = _rules[5];
             }
         }
     }
