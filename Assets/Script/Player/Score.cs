@@ -31,23 +31,23 @@ public class Score : MonoBehaviour
 
         if (_record / 1000 >= 1)
         {
-            _scoreDeath.text = $"Your Record X {_record}";
-            _scoreDeathMesh.text = $"Your Record X {_record}";
+            _scoreDeath.text = $"High Score X {_record}";
+            _scoreDeathMesh.text = $"High Score X {_record}";
         }
         else if (_record / 100 >= 1)
         {
-            _scoreDeath.text = $"Your Record X 0{_record}";
-            _scoreDeathMesh.text = $"Your Record X 0{_record}";
+            _scoreDeath.text = $"High Score X 0{_record}";
+            _scoreDeathMesh.text = $"High Score X 0{_record}";
         }
         else if (_record / 10 >= 1)
         {
-            _scoreDeath.text = $"Your Record X 00{_record}";
-            _scoreDeathMesh.text = $"Your Record X 00{_record}";
+            _scoreDeath.text = $"High Score X 00{_record}";
+            _scoreDeathMesh.text = $"High Score X 00{_record}";
         }
         else if (_record / 10 >= 0)
         {
-            _scoreDeath.text = $"Your Record X 000{_record}";
-            _scoreDeathMesh.text = $"Your Record X 000{_record}";
+            _scoreDeath.text = $"High Score X 000{_record}";
+            _scoreDeathMesh.text = $"High Score X 000{_record}";
         }
     }
 

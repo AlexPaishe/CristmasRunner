@@ -13,6 +13,7 @@ public class Gift : MonoBehaviour
     private KillPresent _kill;
     private float _x;
     private bool _gold = false;
+    private bool _xPos = false;
 
     private void Awake()
     {
@@ -45,9 +46,10 @@ public class Gift : MonoBehaviour
                 _anima.SetTrigger("Classic");
             }
 
-            if(transform.position.x < _x)
+            if(transform.position.x < _x && _xPos == false)
             {
                 Base.Gold = false;
+                _xPos = true;
             }
         }
         else

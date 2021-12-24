@@ -48,9 +48,18 @@ public class MainMenu : MonoBehaviour
         Base.Pause = false;
         Base.Go = false;
         Base.Speed = PlayerPrefs.GetFloat("HardLevel");
+        if(Base.Speed == 0)
+        {
+            Base.Speed = 2;
+        }
         Base.PlayerSpeed = PlayerPrefs.GetFloat("HardLevel");
+        if(Base.PlayerSpeed == 0)
+        {
+            Base.PlayerSpeed = 2;
+        }
         Base.Death = false;
         Base.Game = false;
+        Base.Gold = false;
 
         ScoreRecord();
     }
