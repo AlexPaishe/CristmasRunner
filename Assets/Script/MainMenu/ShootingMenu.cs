@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShootingMenu : MonoBehaviour
+public class ShootingMenu : Monocache
 {
-    [SerializeField] private Transform _point;
-    [SerializeField] private GameObject _fireball;
+    //[SerializeField] private Transform _point;
+    //[SerializeField] private GameObject _fireball;
+    [SerializeField] private GameObject _snowBall;
+    [SerializeField] private Animator _fireBall;
     private SantaMove _player;
     private MoveEnemy _enemy;
     private Animator _anima;
@@ -17,9 +19,10 @@ public class ShootingMenu : MonoBehaviour
         _player = FindObjectOfType<SantaMove>();
         _enemy = FindObjectOfType<MoveEnemy>();
         _anima = GetComponent<Animator>();
+        _snowBall.SetActive(false);
     }
 
-    void Update()
+    public override void OnTick()
     {
         if (Base.FireBall == true)
         {
@@ -28,6 +31,7 @@ public class ShootingMenu : MonoBehaviour
             if (_currentPlayer == _currentEnemy)
             {
                 _anima.SetBool("Fire", true);
+                _fireBall.speed = Base.PlayerSpeed;
                 Base.FireBall = false;
             }
             else
@@ -36,13 +40,32 @@ public class ShootingMenu : MonoBehaviour
             }
         }
     }
+    //void Update()
+    //{
+    //    if (Base.FireBall == true)
+    //    {
+    //        _currentEnemy = _enemy.currentFree;
+    //        _currentPlayer = _player.currentFree;
+    //        if (_currentPlayer == _currentEnemy)
+    //        {
+    //            _anima.SetBool("Fire", true);
+    //            Base.FireBall = false;
+    //        }
+    //        else
+    //        {
+    //            Base.FireBall = false;
+    //        }
+    //    }
+    //}
 
     /// <summary>
     /// Реализация выстрела
     /// </summary>
     public void Fire()
     {
-        Instantiate(_fireball, _point.position, Quaternion.identity);
+        //Instantiate(_fireball, _point.position, Quaternion.identity);
+        _snowBall.SetActive(true);
+        _fireBall.SetTrigger("Fire");
         _anima.SetBool("Fire", false);
     }
 }

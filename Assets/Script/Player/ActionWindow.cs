@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class ActionWindow : MonoBehaviour
 {
-    [SerializeField] private Camera _cam;
-    [SerializeField] private LayerMask[] _layers;
+    //[SerializeField] private Camera _cam;
+    //[SerializeField] private LayerMask[] _layers;
     [SerializeField] private float _timer;
     [SerializeField] private float _step;
     [SerializeField] private int _nextLevel;
@@ -39,7 +39,7 @@ public class ActionWindow : MonoBehaviour
     {
         if (collision.CompareTag("Platform") && _static == true || collision.CompareTag("Training") && _static == true)
         {
-            _cam.cullingMask = _layers[0];
+            //_cam.cullingMask = _layers[0];
             Base.PlayerSpeed = Base.Speed;
             Base.Speed = 0;
             _go = true;
@@ -53,7 +53,7 @@ public class ActionWindow : MonoBehaviour
 
         if (collision.CompareTag("Dynamic") && _static == false)
         {
-            _cam.cullingMask = _layers[0];
+            //_cam.cullingMask = _layers[0];
             Base.Speed = _multiply;
             Base.PlayerSpeed = Base.Speed;
             Base.Go = true;
@@ -64,7 +64,7 @@ public class ActionWindow : MonoBehaviour
     {
         if (collision.CompareTag("Dynamic") && _static == false)
         {
-            _cam.cullingMask = _layers[1];
+            //_cam.cullingMask = _layers[1];
             Base.Go = false;
             if (_currentLevel == _nextLevel)
             {
@@ -113,7 +113,7 @@ public class ActionWindow : MonoBehaviour
         if (_currentTimer < 0)
         {
             Base.Speed = _multiply;
-            _cam.cullingMask = _layers[1];
+            //_cam.cullingMask = _layers[1];
             Base.Go = false;
             _anima[0].speed = 1 * Base.PlayerSpeed;
             _anima[1].speed = 1 * Base.PlayerSpeed;
@@ -133,7 +133,7 @@ public class ActionWindow : MonoBehaviour
         _go = false;
         Base.Speed = _multiply;
         Base.PlayerSpeed = _multiply;
-        _cam.cullingMask = _layers[1];
+        //_cam.cullingMask = _layers[1];
         _currentTimer = _timer;
         _currentTimer /= _multiply;
         _frame.fillAmount = 0;

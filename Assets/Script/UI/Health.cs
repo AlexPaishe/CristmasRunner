@@ -22,7 +22,8 @@ public class Health : MonoBehaviour
                 _anima[i].speed = 1 * Base.PlayerSpeed;
             }
             HealthBar();
-            collision.GetComponent<Desolve>().go = true;
+            //collision.GetComponent<Desolve>().go = true;
+            collision.GetComponent<DeathObstacle>().go = true;
         }
 
         if(collision.CompareTag("Damage"))
@@ -33,7 +34,14 @@ public class Health : MonoBehaviour
                 _anima[i].speed = 1 * Base.PlayerSpeed;
             }
             Damage();
-            collision.GetComponent<Desolve>().go = true;
+            if (collision.GetComponent<DeathObstacle>() != null && collision.GetComponent<DeathObstacle>().enabled == true)
+            {
+                collision.GetComponent<DeathObstacle>().go = true;
+            }
+            else
+            {
+                collision.GetComponent<Desolve>().go = true;
+            }
         }
     }
 

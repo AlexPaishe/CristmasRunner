@@ -24,39 +24,25 @@ public class MainMenu : MonoBehaviour
             SceneManager.LoadScene(0);
         }
 
-        if(PlayerPrefs.GetInt("Training") == 0)
+        int training = PlayerPrefs.GetInt("Training");
+
+        switch(training)
         {
-            _training.isOn = true;
-            Base.Training = true;
-        }
-        else if (PlayerPrefs.GetInt("Training") == 1)
-        {
-            _training.isOn = false;
-            Base.Training = false;
+            case 0: _training.isOn = true; Base.Training = true; break;
+            case 1: _training.isOn = false; Base.Training = false; break;
         }
 
-        if(PlayerPrefs.GetInt("VariationInput") == 0)
+        int variations = PlayerPrefs.GetInt("VariationInput");
+
+        switch(variations)
         {
-            _variationInput[0].isOn = true;
-            _variationInput[1].isOn = false;
-        }
-        else if(PlayerPrefs.GetInt("VariationInput") == 1)
-        {
-            _variationInput[0].isOn = false;
-            _variationInput[1].isOn = true;
+            case 0: _variationInput[0].isOn = true; _variationInput[1].isOn = false; break;
+            case 1: _variationInput[0].isOn = false; _variationInput[1].isOn = true; break;
         }
         Base.Pause = false;
         Base.Go = false;
-        Base.Speed = PlayerPrefs.GetFloat("HardLevel");
-        if(Base.Speed == 0)
-        {
-            Base.Speed = 2;
-        }
-        Base.PlayerSpeed = PlayerPrefs.GetFloat("HardLevel");
-        if(Base.PlayerSpeed == 0)
-        {
-            Base.PlayerSpeed = 2;
-        }
+        Base.Speed = 2;
+        Base.PlayerSpeed = 2;
         Base.Death = false;
         Base.Game = false;
         Base.Gold = false;

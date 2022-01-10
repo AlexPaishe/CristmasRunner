@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PhoneController : MonoBehaviour
+public class PhoneController : Monocache
 {
     [SerializeField] private float speed = 10f;
 
@@ -15,6 +15,8 @@ public class PhoneController : MonoBehaviour
 
     public static PhoneController Instance;
 
+    private Transform _tr;
+
     private void Awake()
     {
         if (PhoneController.Instance != null)
@@ -23,6 +25,7 @@ public class PhoneController : MonoBehaviour
             return;
         }
         PhoneController.Instance = this;
+        _tr = GetComponent<Transform>();
     }
 
     private void OnDestroy()
@@ -35,13 +38,24 @@ public class PhoneController : MonoBehaviour
         StartCoroutine(OnPhoneMovementCorutine());
     }
 
-    void Update()
+    //private void Update()
+    //{
+    //    if (Base.Death == false)
+    //    {
+    //        if (Base.Pause == false)
+    //        {
+    //            _tr.position -= Vector3.right * speed * Base.Speed * Time.deltaTime;
+    //        }
+    //    }
+    //}
+
+    public override void OnTick()
     {
         if (Base.Death == false)
         {
             if (Base.Pause == false)
             {
-                transform.position -= Vector3.right * speed * Base.Speed * Time.deltaTime;
+                _tr.position -= Vector3.right * speed * Base.Speed * Time.deltaTime;
             }
         }
     }

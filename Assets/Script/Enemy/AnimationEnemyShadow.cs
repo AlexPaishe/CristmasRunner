@@ -5,7 +5,8 @@ using UnityEngine;
 public class AnimationEnemyShadow : MonoBehaviour
 {
     [SerializeField] private Material[] _mats;
-    [SerializeField] private MeshRenderer _mesh;
+    [SerializeField] private Material[] _shadow;
+    [SerializeField] private MeshRenderer[] _mesh;
     private int _currentMat = 0;
     private int _maxMat;
     private void Awake()
@@ -18,7 +19,8 @@ public class AnimationEnemyShadow : MonoBehaviour
     /// </summary>
     public void ShadowMat()
     {
-        _mesh.material = _mats[_currentMat];
+        _mesh[0].material = _mats[_currentMat];
+        _mesh[1].material = _shadow[_currentMat];
         _currentMat++;
         if (_currentMat == _maxMat)
         {

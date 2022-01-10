@@ -8,9 +8,14 @@ public class KillPresent : MonoBehaviour
     {
         if(other.CompareTag("Gift") || other.CompareTag("Health"))
         {
-            if(other.GetComponent<Desolve>() != null)
+
+            if(other.GetComponent<Desolve>() != null && other.GetComponent<Desolve>().enabled == true)
             {
                 other.GetComponent<Desolve>().go = true;
+            }
+            else if(other.GetComponent<Desolve>() != null && other.GetComponent<Desolve>().enabled == false && other.GetComponent<DeathObstacle>() != null)
+            {
+                other.GetComponent<DeathObstacle>().go = true;
             }
             else
             {

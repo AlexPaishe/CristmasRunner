@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveEnemy : MonoBehaviour
+public class MoveEnemy : Monocache
 {
     [SerializeField] private GameObject []_enemy;
     [SerializeField] private float _speed;
@@ -11,10 +11,12 @@ public class MoveEnemy : MonoBehaviour
     private Animator _anima;
     private bool _go = false;
     private bool _pause = false;
+    private Transform _tr;
 
     private void Awake()
     {
         _anima = _enemy[0].GetComponent<Animator>();
+        _tr = _enemy[1].GetComponent<Transform>();
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -25,7 +27,7 @@ public class MoveEnemy : MonoBehaviour
         }
     }
 
-    private void Update()
+    public override void OnTick()
     {
         if (Base.Death == false)
         {
@@ -59,9 +61,9 @@ public class MoveEnemy : MonoBehaviour
                 _anima.speed = Base.PlayerSpeed;
                 _go = false;
             }
-            if (_enemy[1].transform.position != _target[currentFree])
+            if (_tr.position != _target[currentFree])
             {
-                _enemy[1].transform.position = Vector3.MoveTowards(_enemy[1].transform.position, _target[currentFree], _speed);
+                _tr.position = Vector3.MoveTowards(_tr.position, _target[currentFree], _speed);
             }
         }
         else
