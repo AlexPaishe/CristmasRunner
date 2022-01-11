@@ -165,14 +165,10 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     private void PCMove()
     {
-        if (Input.GetKeyDown(KeyCode.W) && _movement == true)
+        if (Input.GetKeyDown(KeyCode.W) && _movement == true && currentPosition != 2)
         {
             _currentSpeed = _speed * Base.PlayerSpeed;
             currentPosition++;
-            if (currentPosition > 2)
-            {
-                currentPosition = 2;
-            }
             if (Base.Training == true)
             {
                 Base.Go = false;
@@ -183,15 +179,12 @@ public class PlayerMovement : MonoBehaviour
             _anima[0].SetTrigger("MiniJump");
             Base.Action = true;
             _movement = false;
+            Base.Move = 0;
         }
-        else if (Input.GetKeyDown(KeyCode.S) && _movement == true)
+        else if (Input.GetKeyDown(KeyCode.S) && _movement == true && currentPosition != 0)
         {
             _currentSpeed = _speed * Base.PlayerSpeed;
             currentPosition--;
-            if (currentPosition < 0)
-            {
-                currentPosition = 0;
-            }
             if (Base.Training == true)
             {
                 Base.Go = false;
@@ -202,6 +195,7 @@ public class PlayerMovement : MonoBehaviour
             _anima[0].SetTrigger("MiniJump");
             Base.Action = true;
             _movement = false;
+            Base.Move = 2;
         }
         else if (Input.GetKeyDown(KeyCode.A) && _movement == true)
         {
@@ -215,6 +209,7 @@ public class PlayerMovement : MonoBehaviour
             _anima[1].speed = _currentSpeed;
             Base.Action = true;
             _movement = false;
+            Base.Move = 1;
         }
     }
 
@@ -229,7 +224,7 @@ public class PlayerMovement : MonoBehaviour
             RaycastHit hit;
             if(Physics.Raycast(Camera.main.ScreenPointToRay(touch.position), out hit, _maxDistance, _layer) && _movement == true)
             {
-                if(hit.transform.position.z == _point[currentPosition].z + 2)
+                if (hit.transform.position.z == _point[currentPosition].z + 2)
                 {
                     BeginCrouch();
                     if (Base.Training == true)
@@ -241,15 +236,12 @@ public class PlayerMovement : MonoBehaviour
                     _anima[1].speed = _currentSpeed;
                     Base.Action = true;
                     _movement = false;
+                    Base.Move = 1;
                 }
-                else if(hit.transform.position.z == _point[currentPosition].z - 8)
+                else if (hit.transform.position.z == _point[currentPosition].z - 8 && currentPosition != 0)
                 {
                     _currentSpeed = _speed * Base.PlayerSpeed;
                     currentPosition--;
-                    if (currentPosition < 0)
-                    {
-                        currentPosition = 0;
-                    }
                     if (Base.Training == true)
                     {
                         Base.Go = false;
@@ -260,15 +252,12 @@ public class PlayerMovement : MonoBehaviour
                     _anima[0].SetTrigger("MiniJump");
                     Base.Action = true;
                     _movement = false;
+                    Base.Move = 2;
                 }
-                else if(hit.transform.position.z == _point[currentPosition].z + 12)
+                else if(hit.transform.position.z == _point[currentPosition].z + 12 && currentPosition != 2)
                 {
                     _currentSpeed = _speed * Base.PlayerSpeed;
                     currentPosition++;
-                    if (currentPosition > 2)
-                    {
-                        currentPosition = 2;
-                    }
                     if (Base.Training == true)
                     {
                         Base.Go = false;
@@ -279,6 +268,7 @@ public class PlayerMovement : MonoBehaviour
                     _anima[0].SetTrigger("MiniJump");
                     Base.Action = true;
                     _movement = false;
+                    Base.Move = 0;
                 }
             }
         }
@@ -304,14 +294,10 @@ public class PlayerMovement : MonoBehaviour
                     _y1 = _y2;
                 }
 
-                if(_y1 > _y2 && _y1 - _y2 > _swipeNumber)
+                if(_y1 > _y2 && _y1 - _y2 > _swipeNumber && currentPosition != 0)
                 {
                     _currentSpeed = _speed * Base.PlayerSpeed;
                     currentPosition--;
-                    if (currentPosition < 0)
-                    {
-                        currentPosition = 0;
-                    }
                     if (Base.Training == true)
                     {
                         Base.Go = false;
@@ -322,15 +308,12 @@ public class PlayerMovement : MonoBehaviour
                     _anima[0].SetTrigger("MiniJump");
                     Base.Action = true;
                     _movement = false;
+                    Base.Move = 2;
                 }
-                else if(_y1 < _y2 && _y2 - _y1 > _swipeNumber)
+                else if(_y1 < _y2 && _y2 - _y1 > _swipeNumber && currentPosition != 2)
                 {
                     _currentSpeed = _speed * Base.PlayerSpeed;
                     currentPosition++;
-                    if (currentPosition > 2)
-                    {
-                        currentPosition = 2;
-                    }
                     if (Base.Training == true)
                     {
                         Base.Go = false;
@@ -341,6 +324,7 @@ public class PlayerMovement : MonoBehaviour
                     _anima[0].SetTrigger("MiniJump");
                     Base.Action = true;
                     _movement = false;
+                    Base.Move = 0;
                 }
                 else
                 {
@@ -354,6 +338,7 @@ public class PlayerMovement : MonoBehaviour
                     _anima[1].speed = _currentSpeed;
                     Base.Action = true;
                     _movement = false;
+                    Base.Move = 1;
                 }
             }
         }

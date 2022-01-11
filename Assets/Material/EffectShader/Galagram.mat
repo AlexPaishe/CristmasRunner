@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GiftMaterial
-  m_Shader: {fileID: -6465566751694194690, guid: d30993628eeefef46994cf288aeb896c, type: 3}
+  m_Name: Galagram
+  m_Shader: {fileID: -6465566751694194690, guid: e9607e2fc01841249aaed147d1f03e12, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -19,12 +19,8 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - GiftTexture:
-        m_Texture: {fileID: 2800000, guid: 4ed170469d0fa9e408ed83f34a77413c, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - GoldDiftTexture:
-        m_Texture: {fileID: 2800000, guid: a8e1d36d815137f4db8d748607449f77, type: 3}
+    - MainTexture:
+        m_Texture: {fileID: 2800000, guid: 4a2e68ae5a9d60042b1e1afb6a6c9ba3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -85,8 +81,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - InverseGolding: 0
-    - VariationLight: 1
+    - Circle: 0.5
+    - Lines: 5
+    - NegativeEffect: 1
+    - Speed: -1
+    - VeriationGal: 0
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -114,14 +113,13 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - NeonColorClassic: {r: 0, g: 256, b: 234.9176, a: 0}
-    - NeonColorGold: {r: 256, g: 140.549, b: 0, a: 0}
+    - Sphere: {r: 0.8, g: 0.8, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &7614745859834771300
+--- !u!114 &1167027243707969740
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

@@ -138,6 +138,7 @@ public class ActionWindow : MonoBehaviour
         _currentTimer /= _multiply;
         _frame.fillAmount = 0;
         _player.NewZone();
+        Base.Move = 3;
     }
 
     /// <summary>
