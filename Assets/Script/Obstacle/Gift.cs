@@ -7,7 +7,6 @@ public class Gift : Monocache
     public bool go = false;
     [SerializeField] private bool _golding;
     [SerializeField] private MeshRenderer _mesh;
-    [SerializeField] private Material[] _mats;
     [SerializeField] private MeshRenderer _shadow;
     private PlayerMovement _player;
     private KillPresent _kill;
@@ -34,6 +33,12 @@ public class Gift : Monocache
             _mesh.material.SetFloat("_InverseGolding", 0);
             _mesh.material.SetFloat("_VariationLight", 1);
             _inverse = 0;
+        }
+        else
+        {
+            _mesh.material.SetFloat("_InverseGolding", 1);
+            _mesh.material.SetFloat("_VariationLight", 0);
+            _inverse = 1;
         }
         _mesh.material.SetFloat("_Fade", 1);
     }
@@ -74,15 +79,6 @@ public class Gift : Monocache
     public void Death()
     {
         Destroy(this.gameObject);
-    }
-
-    /// <summary>
-    /// Реализация смены вида обЪекта
-    /// </summary>
-    /// <param name="var"></param>
-    public void NewDesolve(int var)
-    {
-        _mesh.material = _mats[var];
     }
 
     /// <summary>

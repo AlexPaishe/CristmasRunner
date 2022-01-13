@@ -11,7 +11,7 @@ public class Textlanguage : MonoBehaviour
     [SerializeField] private TextMeshProUGUI[] _allText;
     [SerializeField] private string[] _russian;
     [SerializeField] private string[] _english;
-    private string[] _lang = new string[19];
+    private string[] _lang = new string[21];
 
     public string[] LanguageText
     {

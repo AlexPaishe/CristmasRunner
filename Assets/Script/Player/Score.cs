@@ -119,15 +119,8 @@ public class Score : MonoBehaviour
             }
             _scoreText.text = numer;
             _scoreTextMesh.text = numer;
-            if (collision.GetComponent<Desolve>() != null)
-            {
-                collision.GetComponent<Desolve>().go = true;
-            }
-            else
-            {
-                collision.GetComponent<Gift>().go = true;
-                collision.GetComponent<FireBall>().Stop();
-            }
+            collision.GetComponent<Gift>().go = true;
+            collision.GetComponent<FireBall>().Stop();
         }
         else if(collision.CompareTag("Gold"))
         {

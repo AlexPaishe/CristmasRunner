@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private GameObject[] _menu;
-    [SerializeField] private Toggle _training;
+    [SerializeField] private Toggle _vibro;
     [SerializeField] private Toggle[] _variationInput;
     [SerializeField] private TextMeshProUGUI [] _recordTextMesh;
     [SerializeField] private AudioSource _click;
@@ -17,12 +17,12 @@ public class MainMenu : MonoBehaviour
 
     private void Awake()
     {
-        int training = PlayerPrefs.GetInt("Training");
+        int vibro = PlayerPrefs.GetInt("Vibro");
 
-        switch(training)
+        switch(vibro)
         {
-            case 0: _training.isOn = true; Base.Training = true; break;
-            case 1: _training.isOn = false; Base.Training = false; break;
+            case 0: _vibro.isOn = true; Base.Vibrator = true; break;
+            case 1: _vibro.isOn = false; Base.Vibrator = false; break;
         }
 
         int variations = PlayerPrefs.GetInt("VariationInput");
@@ -105,17 +105,17 @@ public class MainMenu : MonoBehaviour
     /// Реализация выбора режима: тренировка или без неё
     /// </summary>
     /// <param name="var"></param>
-    public void Training(bool var)
+    public void Vibrator(bool var)
     {
         if(var == true)
         {
-            PlayerPrefs.SetInt("Training", 0);
-            Base.Training = true;
+            PlayerPrefs.SetInt("Vibro", 0);
+            Base.Vibrator = true;
         }
         else
         {
-            PlayerPrefs.SetInt("Training", 1);
-            Base.Training = false;
+            PlayerPrefs.SetInt("Vibro", 1);
+            Base.Vibrator = false;
         }
     }
 

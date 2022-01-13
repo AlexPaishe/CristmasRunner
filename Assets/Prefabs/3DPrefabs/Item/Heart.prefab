@@ -109,8 +109,6 @@ GameObject:
   - component: {fileID: 5574536460860693655}
   - component: {fileID: 6813999099040572091}
   - component: {fileID: 7849886356474512685}
-  - component: {fileID: 7260215014777130472}
-  - component: {fileID: 8122387167142439731}
   - component: {fileID: 171785424140208057}
   m_Layer: 0
   m_Name: Heart
@@ -178,46 +176,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7260215014777130472
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3374120292352223570}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbb8c0f0f4810034da647ded09cb348e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _obj: {fileID: 6736449937316509446}
-  _mats:
-  - {fileID: 2100000, guid: ded303a5737425243bbf7dbf1d0d63fd, type: 2}
-  - {fileID: 2100000, guid: 41adbd266c966ef418f3e5374aa6a8a2, type: 2}
-  - {fileID: 2100000, guid: dcc53b03c83889240ba2beba544ad286, type: 2}
-  - {fileID: 2100000, guid: df36686a9732f7e4f86d41a780fb61b7, type: 2}
-  - {fileID: 2100000, guid: a57e232eea0815d4b9e3478fa9d3d77c, type: 2}
-  - {fileID: 2100000, guid: 9c74ab820332ee444a81e2e298fa0bce, type: 2}
-  go: 0
---- !u!95 &8122387167142439731
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3374120292352223570}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a5b84ffa084438b418d407e9f744bd2f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &171785424140208057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,11 +266,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: c05f5178b5f7e4e499b51ae15660d1da, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61477e493d785e441af05f64fe244d33, type: 3}
---- !u!1 &6736449937316509446 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8298569574067677558, guid: 61477e493d785e441af05f64fe244d33, type: 3}
-  m_PrefabInstance: {fileID: 3339098657107009136}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2162446587309922887 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3482497744038642743, guid: 61477e493d785e441af05f64fe244d33, type: 3}

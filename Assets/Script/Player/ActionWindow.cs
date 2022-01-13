@@ -5,41 +5,40 @@ using UnityEngine.UI;
 
 public class ActionWindow : MonoBehaviour
 {
-    //[SerializeField] private Camera _cam;
-    //[SerializeField] private LayerMask[] _layers;
     [SerializeField] private float _timer;
     [SerializeField] private float _step;
     [SerializeField] private int _nextLevel;
     [SerializeField] private bool _static;
     [SerializeField] private bool _frameFill;
-    [SerializeField] private Image _frame;
     [SerializeField] private Animator[] _anima;
+    [SerializeField] private Material _matSlider;
 
     private bool _go = false;
     private int _currentLevel = 0;
     private float _currentTimer;
     private float _multiply;
     private float _stepFrame;
+    private float _fillAmount = 1;
 
     private PlayerMovement _player;
 
     private void Awake()
     {
         _player = FindObjectOfType<PlayerMovement>();
+        _fillAmount = 0;
+        _matSlider.SetFloat("_Fill", _fillAmount);
     }
 
     private void Start()
     {
         _multiply = PlayerPrefs.GetFloat("HardLevel");
         _currentTimer = _timer;
-        _frame.fillAmount = 0;
     }
 
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.CompareTag("Platform") && _static == true || collision.CompareTag("Training") && _static == true)
         {
-            //_cam.cullingMask = _layers[0];
             Base.PlayerSpeed = Base.Speed;
             Base.Speed = 0;
             _go = true;
@@ -47,13 +46,13 @@ public class ActionWindow : MonoBehaviour
             _currentTimer = _timer;
             _currentTimer /= _multiply;
             _stepFrame = (1 / _currentTimer);
-            _frame.fillAmount = 1;
+            _fillAmount = 1;
+            _matSlider.SetFloat("_Fill", _fillAmount);
             NextStep();
         }
 
         if (collision.CompareTag("Dynamic") && _static == false)
         {
-            //_cam.cullingMask = _layers[0];
             Base.Speed = _multiply;
             Base.PlayerSpeed = Base.Speed;
             Base.Go = true;
@@ -64,7 +63,6 @@ public class ActionWindow : MonoBehaviour
     {
         if (collision.CompareTag("Dynamic") && _static == false)
         {
-            //_cam.cullingMask = _layers[1];
             Base.Go = false;
             if (_currentLevel == _nextLevel)
             {
@@ -106,14 +104,14 @@ public class ActionWindow : MonoBehaviour
             _currentTimer -= Time.deltaTime;
             if (_frameFill == true)
             {
-                _frame.fillAmount -= (_stepFrame * Time.deltaTime);
+                _fillAmount -= (_stepFrame * Time.deltaTime);
+                _matSlider.SetFloat("_Fill", _fillAmount);
             }
         }
 
         if (_currentTimer < 0)
         {
             Base.Speed = _multiply;
-            //_cam.cullingMask = _layers[1];
             Base.Go = false;
             _anima[0].speed = 1 * Base.PlayerSpeed;
             _anima[1].speed = 1 * Base.PlayerSpeed;
@@ -133,10 +131,10 @@ public class ActionWindow : MonoBehaviour
         _go = false;
         Base.Speed = _multiply;
         Base.PlayerSpeed = _multiply;
-        //_cam.cullingMask = _layers[1];
         _currentTimer = _timer;
         _currentTimer /= _multiply;
-        _frame.fillAmount = 0;
+        _fillAmount = 0;
+        _matSlider.SetFloat("_Fill", _fillAmount);
         _player.NewZone();
         Base.Move = 3;
     }

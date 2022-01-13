@@ -22,7 +22,6 @@ public class Health : MonoBehaviour
                 _anima[i].speed = 1 * Base.PlayerSpeed;
             }
             HealthBar();
-            //collision.GetComponent<Desolve>().go = true;
             collision.GetComponent<DeathObstacle>().go = true;
         }
 
@@ -37,10 +36,6 @@ public class Health : MonoBehaviour
             if (collision.GetComponent<DeathObstacle>() != null && collision.GetComponent<DeathObstacle>().enabled == true)
             {
                 collision.GetComponent<DeathObstacle>().go = true;
-            }
-            else
-            {
-                collision.GetComponent<Desolve>().go = true;
             }
         }
     }

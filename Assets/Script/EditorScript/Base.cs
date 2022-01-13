@@ -23,4 +23,5 @@ public static class Base
     public static bool Gold = false;
     public static int Move = 3;
     public static int Language = 0;
+    public static bool Vibrator = true;
 }
