@@ -31,23 +31,59 @@ public class Score : MonoBehaviour
 
         if (_record / 1000 >= 1)
         {
-            _scoreDeath.text = $"High Score X {_record}";
-            _scoreDeathMesh.text = $"High Score X {_record}";
+            switch(Base.Language)
+            {
+                case 0:
+                    _scoreDeath.text = $"Рекорд X {_record}";
+                    _scoreDeathMesh.text = $"Рекорд X {_record}";
+                    break;
+                case 1:
+                    _scoreDeath.text = $"High Score X {_record}";
+                    _scoreDeathMesh.text = $"High Score X {_record}";
+                    break;
+            }
         }
         else if (_record / 100 >= 1)
         {
-            _scoreDeath.text = $"High Score X 0{_record}";
-            _scoreDeathMesh.text = $"High Score X 0{_record}";
+            switch (Base.Language)
+            {
+                case 0:
+                    _scoreDeath.text = $"Рекорд X 0{_record}";
+                    _scoreDeathMesh.text = $"Рекорд X 0{_record}";
+                    break;
+                case 1:
+                    _scoreDeath.text = $"High Score X 0{_record}";
+                    _scoreDeathMesh.text = $"High Score X 0{_record}";
+                    break;
+            }
         }
         else if (_record / 10 >= 1)
         {
-            _scoreDeath.text = $"High Score X 00{_record}";
-            _scoreDeathMesh.text = $"High Score X 00{_record}";
+            switch (Base.Language)
+            {
+                case 0:
+                    _scoreDeath.text = $"Рекорд X 00{_record}";
+                    _scoreDeathMesh.text = $"Рекорд X 00{_record}";
+                    break;
+                case 1:
+                    _scoreDeath.text = $"High Score X 00{_record}";
+                    _scoreDeathMesh.text = $"High Score X 00{_record}";
+                    break;
+            }
         }
         else if (_record / 10 >= 0)
         {
-            _scoreDeath.text = $"High Score X 000{_record}";
-            _scoreDeathMesh.text = $"High Score X 000{_record}";
+            switch (Base.Language)
+            {
+                case 0:
+                    _scoreDeath.text = $"Рекорд X 000{_record}";
+                    _scoreDeathMesh.text = $"Рекорд X 000{_record}";
+                    break;
+                case 1:
+                    _scoreDeath.text = $"High Score X 000{_record}";
+                    _scoreDeathMesh.text = $"High Score X 000{_record}";
+                    break;
+            }
         }
     }
 
@@ -138,46 +174,118 @@ public class Score : MonoBehaviour
 
                 if (_giftCount / 1000 >= 1)
                 {
-                    _scoreDeath.text = $"New Record X {_giftCount}";
-                    _scoreDeathMesh.text = $"New Record X {_giftCount}";
+                    switch (Base.Language)
+                    {
+                        case 0:
+                            _scoreDeath.text = $"Hовый Рекорд X {_record}";
+                            _scoreDeathMesh.text = $"Hовый Рекорд X {_record}";
+                            break;
+                        case 1:
+                            _scoreDeath.text = $"New High Score X {_record}";
+                            _scoreDeathMesh.text = $"New High Score X {_record}";
+                            break;
+                    }
                 }
                 else if (_giftCount / 100 >= 1)
                 {
-                    _scoreDeath.text = $"New Record X 0{_giftCount}";
-                    _scoreDeathMesh.text = $"New Record X 0{_giftCount}";
+                    switch (Base.Language)
+                    {
+                        case 0:
+                            _scoreDeath.text = $"Hовый Рекорд X 0{_record}";
+                            _scoreDeathMesh.text = $"Hовый Рекорд X 0{_record}";
+                            break;
+                        case 1:
+                            _scoreDeath.text = $"New High Score X 0{_record}";
+                            _scoreDeathMesh.text = $"New High Score X 0{_record}";
+                            break;
+                    }
                 }
                 else if (_giftCount / 10 >= 1)
                 {
-                    _scoreDeath.text = $"New Record X 00{_giftCount}";
-                    _scoreDeathMesh.text = $"New Record X 00{_giftCount}";
+                    switch (Base.Language)
+                    {
+                        case 0:
+                            _scoreDeath.text = $"Hовый Рекорд X 00{_record}";
+                            _scoreDeathMesh.text = $"Hовый Рекорд X 00{_record}";
+                            break;
+                        case 1:
+                            _scoreDeath.text = $"New High Score X 00{_record}";
+                            _scoreDeathMesh.text = $"New High Score X 00{_record}";
+                            break;
+                    }
                 }
                 else if (_giftCount / 10 >= 0)
                 {
-                    _scoreDeath.text = $"New Record X 000{_giftCount}";
-                    _scoreDeathMesh.text = $"New Record X 000{_giftCount}";
+                    switch (Base.Language)
+                    {
+                        case 0:
+                            _scoreDeath.text = $"Hовый Рекорд X 000{_record}";
+                            _scoreDeathMesh.text = $"Hовый Рекорд X 000{_record}";
+                            break;
+                        case 1:
+                            _scoreDeath.text = $"New High Score X 000{_record}";
+                            _scoreDeathMesh.text = $"New High Score X 000{_record}";
+                            break;
+                    }
                 }
             }
             else if (_giftCount == _record || _giftCount < _record)
             {
                 if (_giftCount / 1000 >= 1)
                 {
-                    _scoreDeath.text = $"Your Score X {_giftCount}";
-                    _scoreDeathMesh.text = $"Your Score X {_giftCount}";
+                    switch (Base.Language)
+                    {
+                        case 0:
+                            _scoreDeath.text = $"Подарки X {_record}";
+                            _scoreDeathMesh.text = $"Подарки X {_record}";
+                            break;
+                        case 1:
+                            _scoreDeath.text = $"Your Score X {_record}";
+                            _scoreDeathMesh.text = $"Your Score X {_record}";
+                            break;
+                    }
                 }
                 else if (_giftCount / 100 >= 1)
                 {
-                    _scoreDeath.text = $"Your Score X 0{_giftCount}";
-                    _scoreDeathMesh.text = $"Your Score X 0{_giftCount}";
+                    switch (Base.Language)
+                    {
+                        case 0:
+                            _scoreDeath.text = $"Подарки X 0{_record}";
+                            _scoreDeathMesh.text = $"Подарки X 0{_record}";
+                            break;
+                        case 1:
+                            _scoreDeath.text = $"Your Score X 0{_record}";
+                            _scoreDeathMesh.text = $"Your Score X 0{_record}";
+                            break;
+                    }
                 }
                 else if (_giftCount / 10 >= 1)
                 {
-                    _scoreDeath.text = $"Your Score X 00{_giftCount}";
-                    _scoreDeathMesh.text = $"Your Score X 00{_giftCount}";
+                    switch (Base.Language)
+                    {
+                        case 0:
+                            _scoreDeath.text = $"Подарки X 00{_record}";
+                            _scoreDeathMesh.text = $"Подарки X 00{_record}";
+                            break;
+                        case 1:
+                            _scoreDeath.text = $"Your Score X 00{_record}";
+                            _scoreDeathMesh.text = $"Your Score X 00{_record}";
+                            break;
+                    }
                 }
                 else if (_giftCount / 10 >= 0)
                 {
-                    _scoreDeath.text = $"Your Score X 000{_giftCount}";
-                    _scoreDeathMesh.text = $"Your Score X 000{_giftCount}";
+                    switch (Base.Language)
+                    {
+                        case 0:
+                            _scoreDeath.text = $"Подарки X 000{_record}";
+                            _scoreDeathMesh.text = $"Подарки X 000{_record}";
+                            break;
+                        case 1:
+                            _scoreDeath.text = $"Your Score X 000{_record}";
+                            _scoreDeathMesh.text = $"Your Score X 000{_record}";
+                            break;
+                    }
                 }
             }
         }

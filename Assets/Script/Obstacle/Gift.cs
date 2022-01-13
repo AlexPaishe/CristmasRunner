@@ -35,6 +35,7 @@ public class Gift : Monocache
             _mesh.material.SetFloat("_VariationLight", 1);
             _inverse = 0;
         }
+        _mesh.material.SetFloat("_Fade", 1);
     }
 
     public override void OnTick()

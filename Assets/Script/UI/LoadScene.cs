@@ -15,7 +15,10 @@ public class LoadScene : MonoBehaviour
 
     private void Start()
     {
-        Base.Speed = 0;
+        if (Base.Game == true)
+        {
+            Base.Speed = 0;
+        }
     }
 
     /// <summary>
@@ -37,11 +40,11 @@ public class LoadScene : MonoBehaviour
         {
             if(Base.Game == false)
             {
-                SceneManager.LoadScene(1);
+                SceneManager.LoadScene(2);
             }
             else
             {
-                SceneManager.LoadScene(0);
+                SceneManager.LoadScene(1);
             }
         }
         else

@@ -12,18 +12,11 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private Toggle[] _variationInput;
     [SerializeField] private TextMeshProUGUI [] _recordTextMesh;
     [SerializeField] private AudioSource _click;
-    private string[] _nameRecord = new string[2] { "Easy","Hard"};
     private bool _mobile = false;
     private float[] _record = new float[2] {0,0};
 
     private void Awake()
     {
-        if(PlayerPrefs.GetInt("First") == 0)
-        {
-            PlayerPrefs.SetInt("First", 1);
-            SceneManager.LoadScene(0);
-        }
-
         int training = PlayerPrefs.GetInt("Training");
 
         switch(training)
@@ -174,19 +167,19 @@ public class MainMenu : MonoBehaviour
         {
             if (_record[i] / 1000 >= 1)
             {
-                _recordTextMesh[i].text = $"{_nameRecord[i]} X {_record[i]}";
+                _recordTextMesh[i].text = $" X {_record[i]}";
             }
             else if (_record[i] / 100 >= 1)
             {
-                _recordTextMesh[i].text = $"{_nameRecord[i]} X 0{_record[i]}";
+                _recordTextMesh[i].text = $" X 0{_record[i]}";
             }
             else if (_record[i] / 10 >= 1)
             {
-                _recordTextMesh[i].text = $"{_nameRecord[i]} X 00{_record[i]}";
+                _recordTextMesh[i].text = $" X 00{_record[i]}";
             }
             else if (_record[i] / 10 >= 0)
             {
-                _recordTextMesh[i].text = $"{_nameRecord[i]} X 000{_record[i]}";
+                _recordTextMesh[i].text = $" X 000{_record[i]}";
             }
         }
     }

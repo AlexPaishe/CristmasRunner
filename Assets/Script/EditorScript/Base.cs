@@ -22,4 +22,5 @@ public static class Base
     public static int House = 0;
     public static bool Gold = false;
     public static int Move = 3;
+    public static int Language = 0;
 }

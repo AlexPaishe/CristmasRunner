@@ -392,7 +392,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6117094981323434149, guid: fbfb820fc0642184b9ddf640111d328c, type: 3}
       propertyPath: m_Name
-      value: Earth (1)
+      value: EarthSun
       objectReference: {fileID: 0}
     - target: {fileID: 6117094981323434149, guid: fbfb820fc0642184b9ddf640111d328c, type: 3}
       propertyPath: m_Layer
@@ -401,7 +401,7 @@ PrefabInstance:
     - target: {fileID: 6117094981323434151, guid: fbfb820fc0642184b9ddf640111d328c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 6d9b7f8eec296b347aaf868031e2b2b8, type: 2}
+      objectReference: {fileID: 2100000, guid: eeeee538975e10547926f8a8b801e200, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbfb820fc0642184b9ddf640111d328c, type: 3}
 --- !u!4 &8746799510043480210 stripped
@@ -462,7 +462,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6117094981323434149, guid: fbfb820fc0642184b9ddf640111d328c, type: 3}
       propertyPath: m_Name
-      value: Earth (3)
+      value: EarthSun
       objectReference: {fileID: 0}
     - target: {fileID: 6117094981323434149, guid: fbfb820fc0642184b9ddf640111d328c, type: 3}
       propertyPath: m_Layer
@@ -471,7 +471,7 @@ PrefabInstance:
     - target: {fileID: 6117094981323434151, guid: fbfb820fc0642184b9ddf640111d328c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 6d9b7f8eec296b347aaf868031e2b2b8, type: 2}
+      objectReference: {fileID: 2100000, guid: eeeee538975e10547926f8a8b801e200, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbfb820fc0642184b9ddf640111d328c, type: 3}
 --- !u!4 &8022405323738198110 stripped
@@ -594,7 +594,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6117094981323434149, guid: fbfb820fc0642184b9ddf640111d328c, type: 3}
       propertyPath: m_Name
-      value: Earth (2)
+      value: EarthSun
       objectReference: {fileID: 0}
     - target: {fileID: 6117094981323434149, guid: fbfb820fc0642184b9ddf640111d328c, type: 3}
       propertyPath: m_Layer
@@ -603,7 +603,7 @@ PrefabInstance:
     - target: {fileID: 6117094981323434151, guid: fbfb820fc0642184b9ddf640111d328c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 6d9b7f8eec296b347aaf868031e2b2b8, type: 2}
+      objectReference: {fileID: 2100000, guid: eeeee538975e10547926f8a8b801e200, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbfb820fc0642184b9ddf640111d328c, type: 3}
 --- !u!4 &1892602981707198264 stripped
