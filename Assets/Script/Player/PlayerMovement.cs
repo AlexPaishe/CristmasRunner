@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         _box = GetComponent<BoxCollider>();
+        _currentSpeed = _speed * Base.PlayerSpeed;
     }
 
     private void Start()
@@ -89,19 +90,22 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     private void Move()
     {
-        if(Base.PC == true)
+        if (Base.Training == false)
         {
-            PCMove();
-        }
-        else
-        {
-            if(Base.Mobile == 0)
+            if (Base.PC == true)
             {
-                MobileMoveFirst();
+                PCMove();
             }
-            else if(Base.Mobile == 1)
+            else
             {
-                MobileMoveSecond();
+                if (Base.Mobile == 0)
+                {
+                    MobileMoveFirst();
+                }
+                else if (Base.Mobile == 1)
+                {
+                    MobileMoveSecond();
+                }
             }
         }
     }

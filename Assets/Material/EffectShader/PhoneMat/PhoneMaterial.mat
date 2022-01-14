@@ -99,11 +99,11 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _HouseOffset: 2.2495797
+    - _HouseOffset: 0.46200058
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
-    - _PhoneOffset: 1.5747075
+    - _PhoneOffset: 0.32339922
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Smoothness: 0.5

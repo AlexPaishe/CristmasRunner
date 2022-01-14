@@ -96,8 +96,9 @@ public class MainMenu : MonoBehaviour
     {
         switch(var)
         {
-            case 0: PlayerPrefs.SetFloat("HardLevel", 2); Base.Hard = false; break;
-            case 1: PlayerPrefs.SetFloat("HardLevel", 2); Base.Hard = true; break;
+            case 0: PlayerPrefs.SetFloat("HardLevel", 2); Base.Hard = false; Base.Training = true; PlayerPrefs.SetInt("Training", 0); break;
+            case 1: PlayerPrefs.SetFloat("HardLevel", 2); Base.Hard = false; PlayerPrefs.SetInt("Training", 1); break;
+            case 2: PlayerPrefs.SetFloat("HardLevel", 2); Base.Hard = true; PlayerPrefs.SetInt("Training", 1); break;
         }
     }
 

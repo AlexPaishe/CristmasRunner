@@ -48,7 +48,10 @@ public class ActionWindow : MonoBehaviour
             _stepFrame = (1 / _currentTimer);
             _fillAmount = 1;
             _matSlider.SetFloat("_Fill", _fillAmount);
-            NextStep();
+            if (Base.Training == false)
+            {
+                NextStep();
+            }
         }
 
         if (collision.CompareTag("Dynamic") && _static == false)

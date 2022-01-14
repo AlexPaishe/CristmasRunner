@@ -21,7 +21,7 @@ public class MoveEnemy : Monocache
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.CompareTag("Platform"))
+        if (collision.CompareTag("Platform")|| collision.CompareTag("Training"))
         {
             currentFree = collision.gameObject.GetComponent<DirectEnemy>().CurrentFree;
         }
