@@ -1,20 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Vibrator : MonoBehaviour
 {
     private bool _go = false;
-
-    private void Awake()
-    {
-        int vibro = PlayerPrefs.GetInt("Vibro");
-        switch (vibro)
-        {
-            case 0: Base.Vibrator = true; break;
-            case 1: Base.Vibrator = false; break;
-        }
-    }
 
     private void Update()
     {

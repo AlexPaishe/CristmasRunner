@@ -9,9 +9,14 @@ public class UIMaster : MonoBehaviour
     [SerializeField] private Sprite[] _startAndPause;
     [SerializeField] private Image _buttonPause;
     [SerializeField] private Animator _animaGift;
+    [SerializeField] private GameObject _setting;
+    [SerializeField] private Image[] _variations;
+    [SerializeField] private Sprite[] _isOn;
     private bool _go = true;
     private bool _gold = false;
     private bool _begin = true;
+    private bool _vars = false;
+    private bool _vibro = false;
     private Score _score;
     private AfterPause _after;
     private AudioSource _audio;
@@ -20,7 +25,15 @@ public class UIMaster : MonoBehaviour
     {
         _score = FindObjectOfType<Score>();
         _after = FindObjectOfType<AfterPause>();
-        Base.Mobile = PlayerPrefs.GetInt("VariationInput");
+        int variations = PlayerPrefs.GetInt("VariationInput");
+
+        switch (variations)
+        {
+            case 0: _variations[0].sprite = _isOn[1]; _variations[1].sprite = _isOn[0]; _vars = false; break;
+            case 1: _variations[0].sprite = _isOn[0]; _variations[1].sprite = _isOn[1]; _vars = true; break;
+        }
+
+        Base.Mobile = variations;
         Base.Death = false;
         Base.Go = false;
         Base.CurrentHealth = 0;
@@ -33,6 +46,13 @@ public class UIMaster : MonoBehaviour
         Base.Speed = PlayerPrefs.GetFloat("HardLevel");
         Base.Gold = false;
         _audio = GetComponent<AudioSource>();
+
+        int vibro = PlayerPrefs.GetInt("Vibro");
+        switch (vibro)
+        {
+            case 0: _variations[2].sprite = _isOn[1]; _vibro = true; Base.Vibrator = true; break;
+            case 1: _variations[2].sprite = _isOn[0]; _vibro = false; Base.Vibrator = false; break;
+        }
     }
 
     /// <summary>
@@ -56,6 +76,7 @@ public class UIMaster : MonoBehaviour
                 {
                     _go = true;
                     _anima.SetBool("Pause", false);
+                    _setting.SetActive(false);
                     _buttonPause.sprite = _startAndPause[1];
                 }
             }
@@ -92,5 +113,64 @@ public class UIMaster : MonoBehaviour
     public void Click()
     {
         _audio.Play();
+    }
+
+    /// <summary>
+    /// Реализация включение и выключение меню настроек
+    /// </summary>
+    /// <param name="var"></param>
+    public void Setting(int var)
+    {
+        switch(var)
+        {
+            case 0:  _setting.SetActive(true); break;
+            case 1:  _setting.SetActive(false); break;
+        }
+    }
+
+    /// <summary>
+    /// Реализация выбора управления 
+    /// </summary>
+    /// <param name="var"></param>
+    public void VariationInput()
+    {
+        if (_vars == true)
+        {
+            PlayerPrefs.SetInt("VariationInput", 0);
+            Base.Mobile = 0;
+            _variations[1].sprite = _isOn[0];
+            _variations[0].sprite = _isOn[1];
+            _vars = false;
+        }
+        else
+        {
+            PlayerPrefs.SetInt("VariationInput", 1);
+            Base.Mobile = 1;
+            _variations[0].sprite = _isOn[0];
+            _variations[1].sprite = _isOn[1];
+            _vars = true;
+        }
+    }
+
+    /// <summary>
+    /// Реализация выбора режима: тренировка или без неё
+    /// </summary>
+    /// <param name="var"></param>
+    public void Vibratoring()
+    {
+        if (_vibro == false)
+        {
+            PlayerPrefs.SetInt("Vibro", 0);
+            Base.Vibrator = true;
+            _variations[2].sprite = _isOn[1];
+            _vibro = true;
+        }
+        else
+        {
+            PlayerPrefs.SetInt("Vibro", 1);
+            Base.Vibrator = false;
+            _variations[2].sprite = _isOn[0];
+            _vibro = false;
+        }
     }
 }
